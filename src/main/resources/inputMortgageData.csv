@@ -1,0 +1,13 @@
+repaymentStartDate;2023-04-01
+monthsDuration;180
+amount;300000
+rateType;DECREASING
+wiborPercentage;1.73
+bankMarginPercent;1.9
+overpaymentReduceWay;REDUCE_RATE
+overpaymentProvisionPercent;3
+overpaymentProvisionMonths;36
+overpaymentSchema;1:12000,6:13000,7:14000,8:10500
+mortgagePrintPayoffsSchedule;true
+mortgageRateNumberToPrint;1
+compareToSavings;true

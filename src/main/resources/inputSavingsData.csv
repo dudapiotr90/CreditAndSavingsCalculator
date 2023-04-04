@@ -1,0 +1,6 @@
+depositDuration;5
+depositSchema;1:12000,6:13000,7:14000,8:10500
+savingType;RENEWABLE
+depositInterest;3.63
+interestCapitalization;AFTER_MONTH
+tax;19

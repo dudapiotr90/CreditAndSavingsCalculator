@@ -1,0 +1,66 @@
+plugins {
+    id 'java'
+    id 'jacoco'
+}
+
+group = 'pl.zajavka'
+version = '0.0.1'
+sourceCompatibility = '17'
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly 'org.projectlombok:lombok:1.18.26'
+    annotationProcessor 'org.projectlombok:lombok:1.18.26'
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.26'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.26'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.9.2'
+
+    implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.4.5'
+    testImplementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.4.5'
+
+    implementation group: 'de.elnarion.util', name: 'plantuml-generator-util', version: '2.0.0'
+
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+    finalizedBy jacocoTestReport
+}
+jacoco {
+    toolVersion = "0.8.8"
+}
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.required = false
+        csv.required = false
+        html.outputLocation = layout.buildDirectory.dir('jacocoHtmlCustom')
+    }
+}
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                counter = 'LINE'
+                value = 'COVEREDRATIO'
+                minimum = 0.4
+            }
+        }
+    }
+}
+
+check.dependsOn jacocoTestCoverageVerification
+
+compileJava.options.encoding = 'UTF-8'

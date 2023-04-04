@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <import class="ch.qos.logback.core.FileAppender"/>
+    <import class="ch.qos.logback.core.ConsoleAppender"/>
+
+    <property name="PATTERN" value="%date{dd MMMM yyyy ; HH:mm:ss.SSS} [%t] %-5level %logger{36}:%line %msg%n"/>
+    <property name="MORTGAGE" value="${user.dir}/logs/logMortgage"/>
+    <property name="SAVINGS" value="${user.dir}/logs/logSavings"/>
+
+    <appender name="CONSOLE" class="ConsoleAppender">
+        <encoder>
+            <pattern>${PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="MORTGAGE" class="FileAppender">
+        <file>${MORTGAGE}</file>
+        <append>true</append>
+        <immediateFlush>true</immediateFlush>
+        <encoder>
+            <pattern>${PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="SAVINGS" class="FileAppender">
+        <file>${SAVINGS}</file>
+        <append>true</append>
+        <immediateFlush>true</immediateFlush>
+        <encoder>
+            <pattern>${PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="pl.zajavka.bankCalculator.creditCalculator" level="info" additivity="false">
+        <appender-ref ref="MORTGAGE"/>
+    </logger>
+
+    <logger name="pl.zajavka.bankCalculator.savingsCalculator" level="info" additivity="false">
+        <appender-ref ref="SAVINGS"/>
+    </logger>
+
+    <root level="error">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>

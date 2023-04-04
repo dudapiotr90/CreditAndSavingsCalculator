@@ -1,0 +1,706 @@
+@startuml
+scale 5
+!theme black-knight
+skinparam classAttributeIconSize 6
+
+class ProjectRunner {
+	{method}  {static} +main ( paramString;1 : [Ljava.lang.String; ) : void
+}
+
+
+class creditCalculator.MortgageDependenciesCreator {
+}
+
+
+class creditCalculator.modelOfCredit.InputData {
+	{method} +amount () : java.math.BigDecimal
+	{method} +bankMarginPercent () : java.math.BigDecimal
+	{method}  {static} +builder () : creditCalculator.modelOfCredit.InputData$InputDataBuilder
+	{method} +compareToSavings () : boolean
+	{method} +equals ( paramObject1 : Object ) : boolean
+	{method} +hashCode () : int
+	{method} +interestDisplay () : java.math.BigDecimal
+	{method} +interestPercent () : java.math.BigDecimal
+	{method} +monthsDuration () : java.math.BigDecimal
+	{method} +mortgagePrintPayoffsSchedule () : boolean
+	{method} +mortgageRateNumberToPrint () : Integer
+	{method} +overpaymentProvisionMonths () : java.math.BigDecimal
+	{method} +overpaymentProvisionPercent () : java.math.BigDecimal
+	{method} +overpaymentReduceWay () : String
+	{method} +overpaymentSchema () : java.util.Map
+	{method} +rateType () : creditCalculator.modelOfCredit.RateTypes
+	{method} +repaymentStartDate () : java.time.LocalDate
+	{method} +toString () : String
+	{method} +wiborPercentage () : java.math.BigDecimal
+	{method} +withAmount ( paramBigDecimal1 : java.math.BigDecimal ) : creditCalculator.modelOfCredit.InputData
+	{method} +withBankMarginPercent ( paramBigDecimal1 : java.math.BigDecimal ) : creditCalculator.modelOfCredit.InputData
+	{method} +withCompareToSavings ( paramboolean1 : boolean ) : creditCalculator.modelOfCredit.InputData
+	{method} +withMonthsDuration ( paramBigDecimal1 : java.math.BigDecimal ) : creditCalculator.modelOfCredit.InputData
+	{method} +withMortgagePrintPayoffsSchedule ( paramboolean1 : boolean ) : creditCalculator.modelOfCredit.InputData
+	{method} +withMortgageRateNumberToPrint ( paramInteger1 : Integer ) : creditCalculator.modelOfCredit.InputData
+	{method} +withOverpaymentProvisionMonths ( paramBigDecimal1 : java.math.BigDecimal ) : creditCalculator.modelOfCredit.InputData
+	{method} +withOverpaymentProvisionPercent ( paramBigDecimal1 : java.math.BigDecimal ) : creditCalculator.modelOfCredit.InputData
+	{method} +withOverpaymentReduceWay ( paramString1 : String ) : creditCalculator.modelOfCredit.InputData
+	{method} +withOverpaymentSchema ( paramMap1 : java.util.Map ) : creditCalculator.modelOfCredit.InputData
+	{method} +withRateType ( paramRateTypes1 : creditCalculator.modelOfCredit.RateTypes ) : creditCalculator.modelOfCredit.InputData
+	{method} +withRepaymentStartDate ( paramLocalDate1 : java.time.LocalDate ) : creditCalculator.modelOfCredit.InputData
+	{method} +withWiborPercentage ( paramBigDecimal1 : java.math.BigDecimal ) : creditCalculator.modelOfCredit.InputData
+}
+
+
+class creditCalculator.modelOfCredit.InputData$InputDataBuilder {
+	{method} +amount ( paramBigDecimal1 : java.math.BigDecimal ) : creditCalculator.modelOfCredit.InputData$InputDataBuilder
+	{method} +bankMarginPercent ( paramBigDecimal1 : java.math.BigDecimal ) : creditCalculator.modelOfCredit.InputData$InputDataBuilder
+	{method} +build () : creditCalculator.modelOfCredit.InputData
+	{method} +compareToSavings ( paramboolean1 : boolean ) : creditCalculator.modelOfCredit.InputData$InputDataBuilder
+	{method} +monthsDuration ( paramBigDecimal1 : java.math.BigDecimal ) : creditCalculator.modelOfCredit.InputData$InputDataBuilder
+	{method} +mortgagePrintPayoffsSchedule ( paramboolean1 : boolean ) : creditCalculator.modelOfCredit.InputData$InputDataBuilder
+	{method} +mortgageRateNumberToPrint ( paramInteger1 : Integer ) : creditCalculator.modelOfCredit.InputData$InputDataBuilder
+	{method} +overpaymentProvisionMonths ( paramBigDecimal1 : java.math.BigDecimal ) : creditCalculator.modelOfCredit.InputData$InputDataBuilder
+	{method} +overpaymentProvisionPercent ( paramBigDecimal1 : java.math.BigDecimal ) : creditCalculator.modelOfCredit.InputData$InputDataBuilder
+	{method} +overpaymentReduceWay ( paramString1 : String ) : creditCalculator.modelOfCredit.InputData$InputDataBuilder
+	{method} +overpaymentSchema ( paramMap1 : java.util.Map ) : creditCalculator.modelOfCredit.InputData$InputDataBuilder
+	{method} +rateType ( paramRateTypes1 : creditCalculator.modelOfCredit.RateTypes ) : creditCalculator.modelOfCredit.InputData$InputDataBuilder
+	{method} +repaymentStartDate ( paramLocalDate1 : java.time.LocalDate ) : creditCalculator.modelOfCredit.InputData$InputDataBuilder
+	{method} +toString () : String
+	{method} +wiborPercentage ( paramBigDecimal1 : java.math.BigDecimal ) : creditCalculator.modelOfCredit.InputData$InputDataBuilder
+}
+
+
+class creditCalculator.modelOfCredit.MortgageReference {
+	{method} +amount () : java.math.BigDecimal
+	{method}  {static} +builder () : creditCalculator.modelOfCredit.MortgageReference$MortgageReferenceBuilder
+	{method} +duration () : java.math.BigDecimal
+	{method} +equals ( paramObject1 : Object ) : boolean
+	{method} +hashCode () : int
+	{method} +toString () : String
+	{method} +withAmount ( paramBigDecimal1 : java.math.BigDecimal ) : creditCalculator.modelOfCredit.MortgageReference
+	{method} +withDuration ( paramBigDecimal1 : java.math.BigDecimal ) : creditCalculator.modelOfCredit.MortgageReference
+}
+
+
+class creditCalculator.modelOfCredit.MortgageReference$MortgageReferenceBuilder {
+	{method} +amount ( paramBigDecimal1 : java.math.BigDecimal ) : creditCalculator.modelOfCredit.MortgageReference$MortgageReferenceBuilder
+	{method} +build () : creditCalculator.modelOfCredit.MortgageReference
+	{method} +duration ( paramBigDecimal1 : java.math.BigDecimal ) : creditCalculator.modelOfCredit.MortgageReference$MortgageReferenceBuilder
+	{method} +toString () : String
+}
+
+
+class creditCalculator.modelOfCredit.MortgageResidual {
+	{method} +amount () : java.math.BigDecimal
+	{method}  {static} +builder () : creditCalculator.modelOfCredit.MortgageResidual$MortgageResidualBuilder
+	{method} +duration () : java.math.BigDecimal
+	{method} +equals ( paramObject1 : Object ) : boolean
+	{method} +hashCode () : int
+	{method} +toString () : String
+	{method} +withAmount ( paramBigDecimal1 : java.math.BigDecimal ) : creditCalculator.modelOfCredit.MortgageResidual
+	{method} +withDuration ( paramBigDecimal1 : java.math.BigDecimal ) : creditCalculator.modelOfCredit.MortgageResidual
+}
+
+
+
+
+
+class creditCalculator.modelOfCredit.MortgageSummary {
+	{method} +equals ( paramObject1 : Object ) : boolean
+	{method} +hashCode () : int
+	{method} +interestSum () : java.math.BigDecimal
+	{method} +overpaymentProvisions () : java.math.BigDecimal
+	{method} +toString () : String
+	{method} +totalCapital () : java.math.BigDecimal
+	{method} +totalLosses () : java.math.BigDecimal
+}
+
+
+
+
+class creditCalculator.modelOfCredit.MortgageResidual$MortgageResidualBuilder {
+	{method} +amount ( paramBigDecimal1 : java.math.BigDecimal ) : creditCalculator.modelOfCredit.MortgageResidual$MortgageResidualBuilder
+	{method} +build () : creditCalculator.modelOfCredit.MortgageResidual
+	{method} +duration ( paramBigDecimal1 : java.math.BigDecimal ) : creditCalculator.modelOfCredit.MortgageResidual$MortgageResidualBuilder
+	{method} +toString () : String
+}
+
+class creditCalculator.modelOfCredit.Overpayment {
+	{method} +amount () : java.math.BigDecimal
+	{method}  {static} +builder () : creditCalculator.modelOfCredit.Overpayment$OverpaymentBuilder
+	{method} +equals ( paramObject1 : Object ) : boolean
+	{method} +hashCode () : int
+	{method} +provisionAmount () : java.math.BigDecimal
+	{method} +toString () : String
+	{method} +withAmount ( paramBigDecimal1 : java.math.BigDecimal ) : creditCalculator.modelOfCredit.Overpayment
+	{method} +withProvisionAmount ( paramBigDecimal1 : java.math.BigDecimal ) : creditCalculator.modelOfCredit.Overpayment
+}
+
+
+class creditCalculator.modelOfCredit.Overpayment$OverpaymentBuilder {
+	{method} +amount ( paramBigDecimal1 : java.math.BigDecimal ) : creditCalculator.modelOfCredit.Overpayment$OverpaymentBuilder
+	{method} +build () : creditCalculator.modelOfCredit.Overpayment
+	{method} +provisionAmount ( paramBigDecimal1 : java.math.BigDecimal ) : creditCalculator.modelOfCredit.Overpayment$OverpaymentBuilder
+	{method} +toString () : String
+}
+
+class creditCalculator.modelOfCredit.MortgageTimePoint$MortgageTimePointBuilder {
+	{method} +build () : creditCalculator.modelOfCredit.MortgageTimePoint
+	{method} +date ( paramLocalDate1 : java.time.LocalDate ) : creditCalculator.modelOfCredit.MortgageTimePoint$MortgageTimePointBuilder
+	{method} +month ( paramBigDecimal1 : java.math.BigDecimal ) : creditCalculator.modelOfCredit.MortgageTimePoint$MortgageTimePointBuilder
+	{method} +toString () : String
+	{method} +year ( paramBigDecimal1 : java.math.BigDecimal ) : creditCalculator.modelOfCredit.MortgageTimePoint$MortgageTimePointBuilder
+}
+
+
+class creditCalculator.modelOfCredit.Rate {
+	{method}  {static} +builder () : creditCalculator.modelOfCredit.Rate$RateBuilder
+	{method} +equals ( paramObject1 : Object ) : boolean
+	{method} +hashCode () : int
+	{method} +mortgageReference () : creditCalculator.modelOfCredit.MortgageReference
+	{method} +mortgageResidual () : creditCalculator.modelOfCredit.MortgageResidual
+	{method} +mortgageTimePoint () : creditCalculator.modelOfCredit.MortgageTimePoint
+	{method} +rateAmounts () : creditCalculator.modelOfCredit.RateAmounts
+	{method} +rateNumber () : java.math.BigDecimal
+	{method} +toString () : String
+	{method} +withMortgageReference ( paramMortgageReference1 : creditCalculator.modelOfCredit.MortgageReference ) : creditCalculator.modelOfCredit.Rate
+	{method} +withMortgageResidual ( paramMortgageResidual1 : creditCalculator.modelOfCredit.MortgageResidual ) : creditCalculator.modelOfCredit.Rate
+	{method} +withMortgageTimePoint ( paramMortgageTimePoint1 : creditCalculator.modelOfCredit.MortgageTimePoint ) : creditCalculator.modelOfCredit.Rate
+	{method} +withRateAmounts ( paramRateAmounts1 : creditCalculator.modelOfCredit.RateAmounts ) : creditCalculator.modelOfCredit.Rate
+	{method} +withRateNumber ( paramBigDecimal1 : java.math.BigDecimal ) : creditCalculator.modelOfCredit.Rate
+}
+
+
+class creditCalculator.modelOfCredit.Rate$RateBuilder {
+	{method} +build () : creditCalculator.modelOfCredit.Rate
+	{method} +mortgageReference ( paramMortgageReference1 : creditCalculator.modelOfCredit.MortgageReference ) : creditCalculator.modelOfCredit.Rate$RateBuilder
+	{method} +mortgageResidual ( paramMortgageResidual1 : creditCalculator.modelOfCredit.MortgageResidual ) : creditCalculator.modelOfCredit.Rate$RateBuilder
+	{method} +mortgageTimePoint ( paramMortgageTimePoint1 : creditCalculator.modelOfCredit.MortgageTimePoint ) : creditCalculator.modelOfCredit.Rate$RateBuilder
+	{method} +rateAmounts ( paramRateAmounts1 : creditCalculator.modelOfCredit.RateAmounts ) : creditCalculator.modelOfCredit.Rate$RateBuilder
+	{method} +rateNumber ( paramBigDecimal1 : java.math.BigDecimal ) : creditCalculator.modelOfCredit.Rate$RateBuilder
+	{method} +toString () : String
+}
+
+
+class creditCalculator.modelOfCredit.RateAmounts {
+	{method}  {static} +builder () : creditCalculator.modelOfCredit.RateAmounts$RateAmountsBuilder
+	{method} +capitalAmount () : java.math.BigDecimal
+	{method} +equals ( paramObject1 : Object ) : boolean
+	{method} +hashCode () : int
+	{method} +interest () : java.math.BigDecimal
+	{method} +overpayment () : creditCalculator.modelOfCredit.Overpayment
+	{method} +rateAmount () : java.math.BigDecimal
+	{method} +toString () : String
+	{method} +withCapitalAmount ( paramBigDecimal1 : java.math.BigDecimal ) : creditCalculator.modelOfCredit.RateAmounts
+	{method} +withInterest ( paramBigDecimal1 : java.math.BigDecimal ) : creditCalculator.modelOfCredit.RateAmounts
+	{method} +withOverpayment ( paramOverpayment1 : creditCalculator.modelOfCredit.Overpayment ) : creditCalculator.modelOfCredit.RateAmounts
+	{method} +withRateAmount ( paramBigDecimal1 : java.math.BigDecimal ) : creditCalculator.modelOfCredit.RateAmounts
+}
+
+class creditCalculator.modelOfCredit.MortgageTimePoint {
+	{method}  {static} +builder () : creditCalculator.modelOfCredit.MortgageTimePoint$MortgageTimePointBuilder
+	{method} +date () : java.time.LocalDate
+	{method} +equals ( paramObject1 : Object ) : boolean
+	{method} +hashCode () : int
+	{method} +month () : java.math.BigDecimal
+	{method} +toString () : String
+	{method} +withDate ( paramLocalDate1 : java.time.LocalDate ) : creditCalculator.modelOfCredit.MortgageTimePoint
+	{method} +withMonth ( paramBigDecimal1 : java.math.BigDecimal ) : creditCalculator.modelOfCredit.MortgageTimePoint
+	{method} +withYear ( paramBigDecimal1 : java.math.BigDecimal ) : creditCalculator.modelOfCredit.MortgageTimePoint
+	{method} +year () : java.math.BigDecimal
+}
+
+class creditCalculator.modelOfCredit.RateAmounts$RateAmountsBuilder {
+	{method} +build () : creditCalculator.modelOfCredit.RateAmounts
+	{method} +capitalAmount ( paramBigDecimal1 : java.math.BigDecimal ) : creditCalculator.modelOfCredit.RateAmounts$RateAmountsBuilder
+	{method} +interest ( paramBigDecimal1 : java.math.BigDecimal ) : creditCalculator.modelOfCredit.RateAmounts$RateAmountsBuilder
+	{method} +overpayment ( paramOverpayment1 : creditCalculator.modelOfCredit.Overpayment ) : creditCalculator.modelOfCredit.RateAmounts$RateAmountsBuilder
+	{method} +rateAmount ( paramBigDecimal1 : java.math.BigDecimal ) : creditCalculator.modelOfCredit.RateAmounts$RateAmountsBuilder
+	{method} +toString () : String
+}
+
+
+enum creditCalculator.modelOfCredit.RateTypes {
+	{field} +CONSTANT
+	{field} +DECREASING
+}
+
+
+interface creditCalculator.service.ConstantAmountsCalculationService {
+	{method}  {abstract} +calculate ( paramInputData1 : creditCalculator.modelOfCredit.InputData , paramOverpayment2 : creditCalculator.modelOfCredit.Overpayment ) : creditCalculator.modelOfCredit.RateAmounts
+	{method}  {abstract} +calculate ( paramInputData1 : creditCalculator.modelOfCredit.InputData , paramOverpayment2 : creditCalculator.modelOfCredit.Overpayment , paramRate3 : creditCalculator.modelOfCredit.Rate ) : creditCalculator.modelOfCredit.RateAmounts
+}
+
+
+class creditCalculator.service.ConstantAmountsCalculationServiceImpl {
+	{method} +calculate ( paramInputData1 : creditCalculator.modelOfCredit.InputData , paramOverpayment2 : creditCalculator.modelOfCredit.Overpayment ) : creditCalculator.modelOfCredit.RateAmounts
+	{method} +calculate ( paramInputData1 : creditCalculator.modelOfCredit.InputData , paramOverpayment2 : creditCalculator.modelOfCredit.Overpayment , paramRate3 : creditCalculator.modelOfCredit.Rate ) : creditCalculator.modelOfCredit.RateAmounts
+}
+
+
+interface creditCalculator.service.DecreasingAmountsCalculationService {
+	{method}  {abstract} +calculate ( paramInputData1 : creditCalculator.modelOfCredit.InputData , paramOverpayment2 : creditCalculator.modelOfCredit.Overpayment ) : creditCalculator.modelOfCredit.RateAmounts
+	{method}  {abstract} +calculate ( paramInputData1 : creditCalculator.modelOfCredit.InputData , paramOverpayment2 : creditCalculator.modelOfCredit.Overpayment , paramRate3 : creditCalculator.modelOfCredit.Rate ) : creditCalculator.modelOfCredit.RateAmounts
+}
+
+
+class creditCalculator.service.DecreasingAmountsCalculationServiceImpl {
+	{method} +calculate ( paramInputData1 : creditCalculator.modelOfCredit.InputData , paramOverpayment2 : creditCalculator.modelOfCredit.Overpayment ) : creditCalculator.modelOfCredit.RateAmounts
+	{method} +calculate ( paramInputData1 : creditCalculator.modelOfCredit.InputData , paramOverpayment2 : creditCalculator.modelOfCredit.Overpayment , paramRate3 : creditCalculator.modelOfCredit.Rate ) : creditCalculator.modelOfCredit.RateAmounts
+}
+
+
+interface creditCalculator.service.Function {
+	{method}  {abstract} +calculate ( paramRate1 : creditCalculator.modelOfCredit.Rate ) : java.math.BigDecimal
+}
+
+
+interface creditCalculator.service.MortgageCalculationService {
+	{method}  {abstract} +calculate ( paramInputData1 : creditCalculator.modelOfCredit.InputData ) : void
+}
+
+
+class creditCalculator.service.MortgageCalculationServiceImpl {
+	{method} +calculate ( paramInputData1 : creditCalculator.modelOfCredit.InputData ) : void
+}
+
+
+class creditCalculator.service.MortgageException {
+}
+
+
+interface creditCalculator.service.MortgageSummaryService {
+	{method}  {abstract} +calculate ( paramList1 : java.util.List ) : creditCalculator.modelOfCredit.MortgageSummary
+}
+
+
+interface creditCalculator.service.OverpaymentCalculationService {
+	{method}  {abstract} +calculate ( paramBigDecimal1 : java.math.BigDecimal , paramInputData2 : creditCalculator.modelOfCredit.InputData ) : creditCalculator.modelOfCredit.Overpayment
+}
+
+
+class creditCalculator.service.OverpaymentCalculationServiceImpl {
+	{method} +calculate ( paramBigDecimal1 : java.math.BigDecimal , paramInputData2 : creditCalculator.modelOfCredit.InputData ) : creditCalculator.modelOfCredit.Overpayment
+	{method} -calculateAmount ( paramBigDecimal1 : java.math.BigDecimal , paramMap2 : java.util.Map ) : java.util.Optional
+	{method} -calculateProvision ( paramBigDecimal1 : java.math.BigDecimal , paramBigDecimal2 : java.math.BigDecimal , paramInputData3 : creditCalculator.modelOfCredit.InputData ) : java.math.BigDecimal
+}
+
+
+interface creditCalculator.service.RateAmountsCalculationService {
+	{method}  {abstract} +calculate ( paramInputData1 : creditCalculator.modelOfCredit.InputData , paramOverpayment2 : creditCalculator.modelOfCredit.Overpayment ) : creditCalculator.modelOfCredit.RateAmounts
+	{method}  {abstract} +calculate ( paramInputData1 : creditCalculator.modelOfCredit.InputData , paramOverpayment2 : creditCalculator.modelOfCredit.Overpayment , paramRate3 : creditCalculator.modelOfCredit.Rate ) : creditCalculator.modelOfCredit.RateAmounts
+}
+
+
+class creditCalculator.service.RateAmountsCalculationServiceImpl {
+	{method} +calculate ( paramInputData1 : creditCalculator.modelOfCredit.InputData , paramOverpayment2 : creditCalculator.modelOfCredit.Overpayment ) : creditCalculator.modelOfCredit.RateAmounts
+	{method} +calculate ( paramInputData1 : creditCalculator.modelOfCredit.InputData , paramOverpayment2 : creditCalculator.modelOfCredit.Overpayment , paramRate3 : creditCalculator.modelOfCredit.Rate ) : creditCalculator.modelOfCredit.RateAmounts
+}
+
+
+interface creditCalculator.service.RateCalculationService {
+	{method}  {abstract} +calculate ( paramInputData1 : creditCalculator.modelOfCredit.InputData ) : java.util.List
+}
+
+
+class creditCalculator.service.RateCalculationServiceImpl {
+	{method} +calculate ( paramInputData1 : creditCalculator.modelOfCredit.InputData ) : java.util.List
+	{method} -calculateRate ( paramBigDecimal1 : java.math.BigDecimal , paramInputData2 : creditCalculator.modelOfCredit.InputData ) : creditCalculator.modelOfCredit.Rate
+	{method} -calculateRate ( paramBigDecimal1 : java.math.BigDecimal , paramInputData2 : creditCalculator.modelOfCredit.InputData , paramRate3 : creditCalculator.modelOfCredit.Rate ) : creditCalculator.modelOfCredit.Rate
+	{method}  {static} -mortgageFinished ( paramRate1 : creditCalculator.modelOfCredit.Rate ) : boolean
+}
+
+
+interface creditCalculator.service.ReferenceCalculationService {
+	{method}  {abstract} +calculate ( paramInputData1 : creditCalculator.modelOfCredit.InputData , paramOverpayment2 : creditCalculator.modelOfCredit.Overpayment ) : creditCalculator.modelOfCredit.MortgageReference
+	{method}  {abstract} +calculate ( paramInputData1 : creditCalculator.modelOfCredit.InputData , paramRateAmounts2 : creditCalculator.modelOfCredit.RateAmounts , paramRate3 : creditCalculator.modelOfCredit.Rate ) : creditCalculator.modelOfCredit.MortgageReference
+}
+
+
+class creditCalculator.service.ReferenceCalculationServiceImpl {
+	{method} +calculate ( paramInputData1 : creditCalculator.modelOfCredit.InputData , paramOverpayment2 : creditCalculator.modelOfCredit.Overpayment ) : creditCalculator.modelOfCredit.MortgageReference
+	{method} +calculate ( paramInputData1 : creditCalculator.modelOfCredit.InputData , paramRateAmounts2 : creditCalculator.modelOfCredit.RateAmounts , paramRate3 : creditCalculator.modelOfCredit.Rate ) : creditCalculator.modelOfCredit.MortgageReference
+	{method} -reduceRateMortgageReference ( paramRateAmounts1 : creditCalculator.modelOfCredit.RateAmounts , paramRate2 : creditCalculator.modelOfCredit.Rate ) : creditCalculator.modelOfCredit.MortgageReference
+}
+
+
+interface creditCalculator.service.ResidualCalculationService {
+	{method}  {abstract} +calculate ( paramRateAmounts1 : creditCalculator.modelOfCredit.RateAmounts , paramInputData2 : creditCalculator.modelOfCredit.InputData ) : creditCalculator.modelOfCredit.MortgageResidual
+	{method}  {abstract} +calculate ( paramRateAmounts1 : creditCalculator.modelOfCredit.RateAmounts , paramRate2 : creditCalculator.modelOfCredit.Rate , paramInputData3 : creditCalculator.modelOfCredit.InputData ) : creditCalculator.modelOfCredit.MortgageResidual
+}
+
+
+class creditCalculator.service.ResidualCalculationServiceImpl {
+	{method} +calculate ( paramRateAmounts1 : creditCalculator.modelOfCredit.RateAmounts , paramInputData2 : creditCalculator.modelOfCredit.InputData ) : creditCalculator.modelOfCredit.MortgageResidual
+	{method} +calculate ( paramRateAmounts1 : creditCalculator.modelOfCredit.RateAmounts , paramRate2 : creditCalculator.modelOfCredit.Rate , paramInputData3 : creditCalculator.modelOfCredit.InputData ) : creditCalculator.modelOfCredit.MortgageResidual
+	{method}  {static} -calculateConstantResidualDuration ( paramInputData1 : creditCalculator.modelOfCredit.InputData , paramBigDecimal2 : java.math.BigDecimal , paramRateAmounts3 : creditCalculator.modelOfCredit.RateAmounts ) : java.math.BigDecimal
+	{method}  {static} -calculateDecreasingResidualDuration ( paramBigDecimal1 : java.math.BigDecimal , paramRateAmounts2 : creditCalculator.modelOfCredit.RateAmounts ) : java.math.BigDecimal
+	{method} -calculateResidualDuration ( paramInputData1 : creditCalculator.modelOfCredit.InputData , paramBigDecimal2 : java.math.BigDecimal , paramBigDecimal3 : java.math.BigDecimal , paramRateAmounts4 : creditCalculator.modelOfCredit.RateAmounts ) : java.math.BigDecimal
+}
+
+
+class creditCalculator.service.SummaryServiceFactory {
+	{method}  {static} -calculate ( paramList1 : java.util.List , paramFunction2 : creditCalculator.service.Function ) : java.math.BigDecimal
+	{method}  {static} +create () : creditCalculator.service.MortgageSummaryService
+	{method}  {static} -totalCapital ( paramRateAmounts1 : creditCalculator.modelOfCredit.RateAmounts ) : java.math.BigDecimal
+}
+
+
+interface creditCalculator.service.TimePointCalculationService {
+	{method}  {abstract} +calculate ( paramBigDecimal1 : java.math.BigDecimal , paramInputData2 : creditCalculator.modelOfCredit.InputData ) : creditCalculator.modelOfCredit.MortgageTimePoint
+	{method}  {abstract} +calculate ( paramBigDecimal1 : java.math.BigDecimal , paramRate2 : creditCalculator.modelOfCredit.Rate ) : creditCalculator.modelOfCredit.MortgageTimePoint
+}
+
+
+class creditCalculator.service.TimePointCalculationServiceImpl {
+	{method} +calculate ( paramBigDecimal1 : java.math.BigDecimal , paramInputData2 : creditCalculator.modelOfCredit.InputData ) : creditCalculator.modelOfCredit.MortgageTimePoint
+	{method} +calculate ( paramBigDecimal1 : java.math.BigDecimal , paramRate2 : creditCalculator.modelOfCredit.Rate ) : creditCalculator.modelOfCredit.MortgageTimePoint
+	{method} -calculateMonth ( paramBigDecimal1 : java.math.BigDecimal ) : java.math.BigDecimal
+	{method} -calculateYear ( paramBigDecimal1 : java.math.BigDecimal ) : java.math.BigDecimal
+}
+
+
+class globalServices.CalculatingMethods {
+	{method}  {static} +calculateConstantCapitalAmount ( paramBigDecimal1 : java.math.BigDecimal , paramBigDecimal2 : java.math.BigDecimal , paramBigDecimal3 : java.math.BigDecimal ) : java.math.BigDecimal
+	{method}  {static} +calculateDecreasingCapitalAmount ( paramBigDecimal1 : java.math.BigDecimal , paramBigDecimal2 : java.math.BigDecimal ) : java.math.BigDecimal
+	{method}  {static} +calculateInterestAmount ( paramBigDecimal1 : java.math.BigDecimal , paramBigDecimal2 : java.math.BigDecimal ) : java.math.BigDecimal
+	{method}  {static} +calculateQ ( paramBigDecimal1 : java.math.BigDecimal ) : java.math.BigDecimal
+	{method}  {static} +calculateRateAmount ( paramBigDecimal1 : java.math.BigDecimal , paramBigDecimal2 : java.math.BigDecimal , paramBigDecimal3 : java.math.BigDecimal , paramBigDecimal4 : java.math.BigDecimal , paramBigDecimal5 : java.math.BigDecimal ) : java.math.BigDecimal
+	{method}  {static} +calculateResidualAmount ( paramBigDecimal1 : java.math.BigDecimal , paramRateAmounts2 : creditCalculator.modelOfCredit.RateAmounts ) : java.math.BigDecimal
+	{method}  {static} +calculateThisYearDeposit ( paramMap1 : java.util.Map , paramList2 : java.util.List ) : java.math.BigDecimal
+	{method}  {static} +compareCapitalWithResidual ( paramBigDecimal1 : java.math.BigDecimal , paramBigDecimal2 : java.math.BigDecimal ) : java.math.BigDecimal
+	{method}  {static} +compareWithResidual ( paramBigDecimal1 : java.math.BigDecimal , paramBigDecimal2 : java.math.BigDecimal , paramBigDecimal3 : java.math.BigDecimal ) : java.math.BigDecimal
+	{method}  {static} +printSchema ( paramMap1 : java.util.Map ) : java.util.Map
+}
+
+
+
+
+
+class globalServices.InputDataService {
+	{method} -createSchema ( paramString1 : String ) : java.util.Map
+	{method}  {static} -extractProperMapValues ( paramMap1 : java.util.Map ) : java.util.Map
+	{method} -firstValidateInputDataFile ( paramMap1 : java.util.Map ) : void
+	{method}  {static} -groupFileToMap ( paramStream1 : java.util.stream.Stream ) : java.util.Map
+	{method} +readMortgageDataFile () : creditCalculator.modelOfCredit.InputData
+	{method} +readSavingsDataFile () : savingsCalculator.modelOfSavings.SavingsData
+	{method} -secondValidateInputDataFile ( paramMap1 : java.util.Map ) : void
+}
+
+
+interface globalServices.PrintingService {
+	{method}  {abstract} +printComparison ( paramComparison1 : globalServices.Comparison , paramInputData2 : creditCalculator.modelOfCredit.InputData ) : void
+	{method}  {abstract} +printIntroInformation ( paramInputData1 : creditCalculator.modelOfCredit.InputData ) : void
+	{method}  {abstract} +printMortgageSummary ( paramMortgageSummary1 : creditCalculator.modelOfCredit.MortgageSummary ) : void
+	{method}  {abstract} +printOverpaymentProfit ( paramMortgageSummary1 : creditCalculator.modelOfCredit.MortgageSummary , paramMortgageSummary2 : creditCalculator.modelOfCredit.MortgageSummary ) : void
+	{method}  {abstract} +printRatesSchedule ( paramList1 : java.util.List , paramInputData2 : creditCalculator.modelOfCredit.InputData ) : void
+	{method}  {abstract} +printSavings ( paramList1 : java.util.List ) : void
+	{method}  {abstract} +printSavingsInformation ( paramSavingsData1 : savingsCalculator.modelOfSavings.SavingsData , paramInputData2 : creditCalculator.modelOfCredit.InputData ) : void
+	{method}  {abstract} +printSavingsSummary ( paramSavingsSummary1 : savingsCalculator.modelOfSavings.SavingsSummary ) : void
+}
+
+class globalServices.Comparison {
+	{method} +mortgageSummary () : creditCalculator.modelOfCredit.MortgageSummary
+	{method} +savingsSummary () : savingsCalculator.modelOfSavings.SavingsSummary
+	{method} +withMortgageSummary ( paramMortgageSummary1 : creditCalculator.modelOfCredit.MortgageSummary ) : globalServices.Comparison
+	{method} +withSavingsSummary ( paramSavingsSummary1 : savingsCalculator.modelOfSavings.SavingsSummary ) : globalServices.Comparison
+	{method} +withWithoutOverpaymentMortgageSummary ( paramMortgageSummary1 : creditCalculator.modelOfCredit.MortgageSummary ) : globalServices.Comparison
+	{method} +withoutOverpaymentMortgageSummary () : creditCalculator.modelOfCredit.MortgageSummary
+}
+
+class globalServices.PrintingServiceImpl {
+	{method} +addToReport ( paramString1 : String ) : void
+	{method}  {static} -createSeparator ( paramchar1 : char , paramint2 : int ) : String
+	{method} -formatRateLine ( paramRate1 : creditCalculator.modelOfCredit.Rate ) : String
+	{method} -formatSavingLine ( paramSavings1 : savingsCalculator.modelOfSavings.Savings ) : String
+	{method}  {static} -getOverpaymentProfit ( paramMortgageSummary1 : creditCalculator.modelOfCredit.MortgageSummary , paramMortgageSummary2 : creditCalculator.modelOfCredit.MortgageSummary ) : java.math.BigDecimal
+	{method} -paymentSchedule ( paramMap1 : java.util.Map ) : String
+	{method} +printComparison ( paramComparison1 : globalServices.Comparison , paramInputData2 : creditCalculator.modelOfCredit.InputData ) : void
+	{method} +printIntroInformation ( paramInputData1 : creditCalculator.modelOfCredit.InputData ) : void
+	{method} +printMortgageSummary ( paramMortgageSummary1 : creditCalculator.modelOfCredit.MortgageSummary ) : void
+	{method} +printOverpaymentProfit ( paramMortgageSummary1 : creditCalculator.modelOfCredit.MortgageSummary , paramMortgageSummary2 : creditCalculator.modelOfCredit.MortgageSummary ) : void
+	{method} +printRatesSchedule ( paramList1 : java.util.List , paramInputData2 : creditCalculator.modelOfCredit.InputData ) : void
+	{method} +printSavings ( paramList1 : java.util.List ) : void
+	{method} +printSavingsInformation ( paramSavingsData1 : savingsCalculator.modelOfSavings.SavingsData , paramInputData2 : creditCalculator.modelOfCredit.InputData ) : void
+	{method} +printSavingsSummary ( paramSavingsSummary1 : savingsCalculator.modelOfSavings.SavingsSummary ) : void
+}
+
+
+class savingsCalculator.SavingsDependenciesCreator {
+}
+
+
+enum savingsCalculator.modelOfSavings.InterestCapitalization {
+	{field} +AFTER_MONTH
+	{field} +AFTER_QUARTER
+	{field} +AFTER_YEAR
+}
+
+
+class savingsCalculator.modelOfSavings.Savings {
+	{method}  {static} +builder () : savingsCalculator.modelOfSavings.Savings$SavingsBuilder
+	{method} +equals ( paramObject1 : Object ) : boolean
+	{method} +hashCode () : int
+	{method} +savingsAmount () : savingsCalculator.modelOfSavings.SavingsAmount
+	{method} +savingsNumber () : java.math.BigDecimal
+	{method} +savingsTimePoint () : savingsCalculator.modelOfSavings.SavingsTimePoint
+	{method} +toString () : String
+	{method} +withSavingsAmount ( paramSavingsAmount1 : savingsCalculator.modelOfSavings.SavingsAmount ) : savingsCalculator.modelOfSavings.Savings
+	{method} +withSavingsNumber ( paramBigDecimal1 : java.math.BigDecimal ) : savingsCalculator.modelOfSavings.Savings
+	{method} +withSavingsTimePoint ( paramSavingsTimePoint1 : savingsCalculator.modelOfSavings.SavingsTimePoint ) : savingsCalculator.modelOfSavings.Savings
+}
+
+
+class savingsCalculator.modelOfSavings.Savings$SavingsBuilder {
+	{method} +build () : savingsCalculator.modelOfSavings.Savings
+	{method} +savingsAmount ( paramSavingsAmount1 : savingsCalculator.modelOfSavings.SavingsAmount ) : savingsCalculator.modelOfSavings.Savings$SavingsBuilder
+	{method} +savingsNumber ( paramBigDecimal1 : java.math.BigDecimal ) : savingsCalculator.modelOfSavings.Savings$SavingsBuilder
+	{method} +savingsTimePoint ( paramSavingsTimePoint1 : savingsCalculator.modelOfSavings.SavingsTimePoint ) : savingsCalculator.modelOfSavings.Savings$SavingsBuilder
+	{method} +toString () : String
+}
+
+
+
+
+
+class savingsCalculator.modelOfSavings.SavingsAmount$SavingsAmountBuilder {
+	{method} +build () : savingsCalculator.modelOfSavings.SavingsAmount
+	{method} +interestAmount ( paramBigDecimal1 : java.math.BigDecimal ) : savingsCalculator.modelOfSavings.SavingsAmount$SavingsAmountBuilder
+	{method} +savingAmount ( paramBigDecimal1 : java.math.BigDecimal ) : savingsCalculator.modelOfSavings.SavingsAmount$SavingsAmountBuilder
+	{method} +toString () : String
+}
+
+
+
+class savingsCalculator.modelOfSavings.SavingsData {
+	{method}  {static} +builder () : savingsCalculator.modelOfSavings.SavingsData$SavingsDataBuilder
+	{method} +depositDuration () : java.math.BigDecimal
+	{method} +depositInterest () : java.math.BigDecimal
+	{method} +depositInterestDisplay () : java.math.BigDecimal
+	{method} +depositSchema () : java.util.Map
+	{method} +equals ( paramObject1 : Object ) : boolean
+	{method} +hashCode () : int
+	{method} +interestCapitalization () : savingsCalculator.modelOfSavings.InterestCapitalization
+	{method} +savingType () : savingsCalculator.modelOfSavings.SavingsType
+	{method} +tax () : java.math.BigDecimal
+	{method} +toString () : String
+	{method} +withDepositDuration ( paramBigDecimal1 : java.math.BigDecimal ) : savingsCalculator.modelOfSavings.SavingsData
+	{method} +withDepositInterest ( paramBigDecimal1 : java.math.BigDecimal ) : savingsCalculator.modelOfSavings.SavingsData
+	{method} +withDepositSchema ( paramMap1 : java.util.Map ) : savingsCalculator.modelOfSavings.SavingsData
+	{method} +withInterestCapitalization ( paramInterestCapitalization1 : savingsCalculator.modelOfSavings.InterestCapitalization ) : savingsCalculator.modelOfSavings.SavingsData
+	{method} +withSavingType ( paramSavingsType1 : savingsCalculator.modelOfSavings.SavingsType ) : savingsCalculator.modelOfSavings.SavingsData
+	{method} +withTax ( paramBigDecimal1 : java.math.BigDecimal ) : savingsCalculator.modelOfSavings.SavingsData
+}
+
+
+class savingsCalculator.modelOfSavings.SavingsData$SavingsDataBuilder {
+	{method} +build () : savingsCalculator.modelOfSavings.SavingsData
+	{method} +depositDuration ( paramBigDecimal1 : java.math.BigDecimal ) : savingsCalculator.modelOfSavings.SavingsData$SavingsDataBuilder
+	{method} +depositInterest ( paramBigDecimal1 : java.math.BigDecimal ) : savingsCalculator.modelOfSavings.SavingsData$SavingsDataBuilder
+	{method} +depositSchema ( paramMap1 : java.util.Map ) : savingsCalculator.modelOfSavings.SavingsData$SavingsDataBuilder
+	{method} +interestCapitalization ( paramInterestCapitalization1 : savingsCalculator.modelOfSavings.InterestCapitalization ) : savingsCalculator.modelOfSavings.SavingsData$SavingsDataBuilder
+	{method} +savingType ( paramSavingsType1 : savingsCalculator.modelOfSavings.SavingsType ) : savingsCalculator.modelOfSavings.SavingsData$SavingsDataBuilder
+	{method} +tax ( paramBigDecimal1 : java.math.BigDecimal ) : savingsCalculator.modelOfSavings.SavingsData$SavingsDataBuilder
+	{method} +toString () : String
+}
+
+
+class savingsCalculator.modelOfSavings.SavingsSummary {
+	{method} +earnings () : java.math.BigDecimal
+	{method} +equals ( paramObject1 : Object ) : boolean
+	{method} +hashCode () : int
+	{method} +savingsSum () : java.math.BigDecimal
+	{method} +toString () : String
+}
+class savingsCalculator.modelOfSavings.SavingsTimePoint$SavingsTimePointBuilder {
+	{method} +build () : savingsCalculator.modelOfSavings.SavingsTimePoint
+	{method} +date ( paramLocalDate1 : java.time.LocalDate ) : savingsCalculator.modelOfSavings.SavingsTimePoint$SavingsTimePointBuilder
+	{method} +months ( paramList1 : java.util.List ) : savingsCalculator.modelOfSavings.SavingsTimePoint$SavingsTimePointBuilder
+	{method} +toString () : String
+	{method} +year ( paramBigDecimal1 : java.math.BigDecimal ) : savingsCalculator.modelOfSavings.SavingsTimePoint$SavingsTimePointBuilder
+}
+
+
+class savingsCalculator.modelOfSavings.SavingsAmount {
+	{method}  {static} +builder () : savingsCalculator.modelOfSavings.SavingsAmount$SavingsAmountBuilder
+	{method} +equals ( paramObject1 : Object ) : boolean
+	{method} +hashCode () : int
+	{method} +interestAmount () : java.math.BigDecimal
+	{method} +savingAmount () : java.math.BigDecimal
+	{method} +toString () : String
+	{method} +withInterestAmount ( paramBigDecimal1 : java.math.BigDecimal ) : savingsCalculator.modelOfSavings.SavingsAmount
+	{method} +withSavingAmount ( paramBigDecimal1 : java.math.BigDecimal ) : savingsCalculator.modelOfSavings.SavingsAmount
+}
+
+class savingsCalculator.modelOfSavings.SavingsTimePoint {
+	{method}  {static} +builder () : savingsCalculator.modelOfSavings.SavingsTimePoint$SavingsTimePointBuilder
+	{method} +date () : java.time.LocalDate
+	{method} +equals ( paramObject1 : Object ) : boolean
+	{method} +hashCode () : int
+	{method} +months () : java.util.List
+	{method} +toString () : String
+	{method} +withDate ( paramLocalDate1 : java.time.LocalDate ) : savingsCalculator.modelOfSavings.SavingsTimePoint
+	{method} +withMonths ( paramList1 : java.util.List ) : savingsCalculator.modelOfSavings.SavingsTimePoint
+	{method} +withYear ( paramBigDecimal1 : java.math.BigDecimal ) : savingsCalculator.modelOfSavings.SavingsTimePoint
+	{method} +year () : java.math.BigDecimal
+}
+
+
+
+
+
+enum savingsCalculator.modelOfSavings.SavingsType {
+	{field} +NON_RENEWABLE
+	{field} +RENEWABLE
+}
+
+
+interface savingsCalculator.service.AmountCalculationService {
+	{method}  {abstract} +calculateSavingAmount ( paramSavingsData1 : savingsCalculator.modelOfSavings.SavingsData , paramBigDecimal2 : java.math.BigDecimal , paramSavingsTimePoint3 : savingsCalculator.modelOfSavings.SavingsTimePoint ) : java.math.BigDecimal
+	{method}  {abstract} +calculateSavingAmount ( paramSavingsData1 : savingsCalculator.modelOfSavings.SavingsData , paramBigDecimal2 : java.math.BigDecimal , paramSavings3 : savingsCalculator.modelOfSavings.Savings , paramSavingsTimePoint4 : savingsCalculator.modelOfSavings.SavingsTimePoint ) : java.math.BigDecimal
+}
+
+
+class savingsCalculator.service.AmountCalculationServiceImpl {
+	{method} +calculateSavingAmount ( paramSavingsData1 : savingsCalculator.modelOfSavings.SavingsData , paramBigDecimal2 : java.math.BigDecimal , paramSavingsTimePoint3 : savingsCalculator.modelOfSavings.SavingsTimePoint ) : java.math.BigDecimal
+	{method} +calculateSavingAmount ( paramSavingsData1 : savingsCalculator.modelOfSavings.SavingsData , paramBigDecimal2 : java.math.BigDecimal , paramSavings3 : savingsCalculator.modelOfSavings.Savings , paramSavingsTimePoint4 : savingsCalculator.modelOfSavings.SavingsTimePoint ) : java.math.BigDecimal
+}
+
+
+interface savingsCalculator.service.InterestCalculationService {
+	{method}  {abstract} +calculateInterestByMonth ( paramSavingsData1 : savingsCalculator.modelOfSavings.SavingsData , paramSavingsTimePoint2 : savingsCalculator.modelOfSavings.SavingsTimePoint ) : java.math.BigDecimal
+	{method}  {abstract} +calculateInterestByMonth ( paramSavingsData1 : savingsCalculator.modelOfSavings.SavingsData , paramSavings2 : savingsCalculator.modelOfSavings.Savings , paramSavingsTimePoint3 : savingsCalculator.modelOfSavings.SavingsTimePoint ) : java.math.BigDecimal
+	{method}  {abstract} +calculateInterestByQuarter ( paramSavingsData1 : savingsCalculator.modelOfSavings.SavingsData , paramSavingsTimePoint2 : savingsCalculator.modelOfSavings.SavingsTimePoint ) : java.math.BigDecimal
+	{method}  {abstract} +calculateInterestByQuarter ( paramSavingsData1 : savingsCalculator.modelOfSavings.SavingsData , paramSavings2 : savingsCalculator.modelOfSavings.Savings , paramSavingsTimePoint3 : savingsCalculator.modelOfSavings.SavingsTimePoint ) : java.math.BigDecimal
+	{method}  {abstract} +calculateInterestByYear ( paramSavingsData1 : savingsCalculator.modelOfSavings.SavingsData , paramSavingsTimePoint2 : savingsCalculator.modelOfSavings.SavingsTimePoint ) : java.math.BigDecimal
+	{method}  {abstract} +calculateInterestByYear ( paramSavingsData1 : savingsCalculator.modelOfSavings.SavingsData , paramSavings2 : savingsCalculator.modelOfSavings.Savings , paramSavingsTimePoint3 : savingsCalculator.modelOfSavings.SavingsTimePoint ) : java.math.BigDecimal
+}
+
+
+class savingsCalculator.service.InterestCalculationServiceImpl {
+	{method} +calculateInterestByMonth ( paramSavingsData1 : savingsCalculator.modelOfSavings.SavingsData , paramSavingsTimePoint2 : savingsCalculator.modelOfSavings.SavingsTimePoint ) : java.math.BigDecimal
+	{method} +calculateInterestByMonth ( paramSavingsData1 : savingsCalculator.modelOfSavings.SavingsData , paramSavings2 : savingsCalculator.modelOfSavings.Savings , paramSavingsTimePoint3 : savingsCalculator.modelOfSavings.SavingsTimePoint ) : java.math.BigDecimal
+	{method} +calculateInterestByQuarter ( paramSavingsData1 : savingsCalculator.modelOfSavings.SavingsData , paramSavingsTimePoint2 : savingsCalculator.modelOfSavings.SavingsTimePoint ) : java.math.BigDecimal
+	{method} +calculateInterestByQuarter ( paramSavingsData1 : savingsCalculator.modelOfSavings.SavingsData , paramSavings2 : savingsCalculator.modelOfSavings.Savings , paramSavingsTimePoint3 : savingsCalculator.modelOfSavings.SavingsTimePoint ) : java.math.BigDecimal
+	{method} +calculateInterestByYear ( paramSavingsData1 : savingsCalculator.modelOfSavings.SavingsData , paramSavingsTimePoint2 : savingsCalculator.modelOfSavings.SavingsTimePoint ) : java.math.BigDecimal
+	{method} +calculateInterestByYear ( paramSavingsData1 : savingsCalculator.modelOfSavings.SavingsData , paramSavings2 : savingsCalculator.modelOfSavings.Savings , paramSavingsTimePoint3 : savingsCalculator.modelOfSavings.SavingsTimePoint ) : java.math.BigDecimal
+	{method}  {static} -getFirstDeposit ( paramSavingsData1 : savingsCalculator.modelOfSavings.SavingsData ) : java.math.BigDecimal
+}
+
+
+interface savingsCalculator.service.SavingsAmountCalculationService {
+	{method}  {abstract} +calculateSaving ( paramSavingsData1 : savingsCalculator.modelOfSavings.SavingsData , paramBigDecimal2 : java.math.BigDecimal , paramInputData3 : creditCalculator.modelOfCredit.InputData ) : savingsCalculator.modelOfSavings.Savings
+	{method}  {abstract} +calculateSaving ( paramSavings1 : savingsCalculator.modelOfSavings.Savings , paramBigDecimal2 : java.math.BigDecimal , paramInputData3 : creditCalculator.modelOfCredit.InputData , paramSavingsData4 : savingsCalculator.modelOfSavings.SavingsData ) : savingsCalculator.modelOfSavings.Savings
+}
+
+
+class savingsCalculator.service.SavingsAmountCalculationServiceImpl {
+	{method} -calculateAmount ( paramSavingsData1 : savingsCalculator.modelOfSavings.SavingsData , paramSavingsTimePoint2 : savingsCalculator.modelOfSavings.SavingsTimePoint ) : savingsCalculator.modelOfSavings.SavingsAmount
+	{method} -calculateAmount ( paramSavings1 : savingsCalculator.modelOfSavings.Savings , paramSavingsData2 : savingsCalculator.modelOfSavings.SavingsData , paramSavingsTimePoint3 : savingsCalculator.modelOfSavings.SavingsTimePoint ) : savingsCalculator.modelOfSavings.SavingsAmount
+	{method} +calculateSaving ( paramSavingsData1 : savingsCalculator.modelOfSavings.SavingsData , paramBigDecimal2 : java.math.BigDecimal , paramInputData3 : creditCalculator.modelOfCredit.InputData ) : savingsCalculator.modelOfSavings.Savings
+	{method} +calculateSaving ( paramSavings1 : savingsCalculator.modelOfSavings.Savings , paramBigDecimal2 : java.math.BigDecimal , paramInputData3 : creditCalculator.modelOfCredit.InputData , paramSavingsData4 : savingsCalculator.modelOfSavings.SavingsData ) : savingsCalculator.modelOfSavings.Savings
+}
+
+
+interface savingsCalculator.service.SavingsCalculationService {
+	{method}  {abstract} +calculate ( paramSavingsData1 : savingsCalculator.modelOfSavings.SavingsData , paramInputData2 : creditCalculator.modelOfCredit.InputData ) : void
+}
+
+
+class savingsCalculator.service.SavingsCalculationServiceImpl {
+	{method} +calculate ( paramSavingsData1 : savingsCalculator.modelOfSavings.SavingsData , paramInputData2 : creditCalculator.modelOfCredit.InputData ) : void
+	{method} +calculateSavings ( paramSavingsData1 : savingsCalculator.modelOfSavings.SavingsData , paramInputData2 : creditCalculator.modelOfCredit.InputData ) : java.util.List
+}
+
+
+class savingsCalculator.service.SavingsSummaryFactory {
+	{method}  {static} -calculate ( paramList1 : java.util.List , paramSavingFunction2 : savingsCalculator.service.SavingFunction ) : java.math.BigDecimal
+	{method}  {static} -calculateSum ( paramList1 : java.util.List ) : java.math.BigDecimal
+	{method}  {static} +createSavings () : savingsCalculator.service.SavingsSummaryService
+}
+
+
+interface savingsCalculator.service.SavingsSummaryService {
+	{method}  {abstract} +calculateSavings ( paramList1 : java.util.List ) : savingsCalculator.modelOfSavings.SavingsSummary
+}
+
+
+interface savingsCalculator.service.SavingFunction {
+	{method}  {abstract} +calculate ( paramSavings1 : savingsCalculator.modelOfSavings.Savings ) : java.math.BigDecimal
+}
+
+interface savingsCalculator.service.SavingsTimeCalculationService {
+	{method}  {abstract} +calculate ( paramSavingsData1 : savingsCalculator.modelOfSavings.SavingsData , paramBigDecimal2 : java.math.BigDecimal , paramInputData3 : creditCalculator.modelOfCredit.InputData ) : savingsCalculator.modelOfSavings.SavingsTimePoint
+	{method}  {abstract} +calculate ( paramSavingsData1 : savingsCalculator.modelOfSavings.SavingsData , paramBigDecimal2 : java.math.BigDecimal , paramSavings3 : savingsCalculator.modelOfSavings.Savings ) : savingsCalculator.modelOfSavings.SavingsTimePoint
+}
+
+
+class savingsCalculator.service.SavingsTimeCalculationServiceImpl {
+	{method} +calculate ( paramSavingsData1 : savingsCalculator.modelOfSavings.SavingsData , paramBigDecimal2 : java.math.BigDecimal , paramInputData3 : creditCalculator.modelOfCredit.InputData ) : savingsCalculator.modelOfSavings.SavingsTimePoint
+	{method} +calculate ( paramSavingsData1 : savingsCalculator.modelOfSavings.SavingsData , paramBigDecimal2 : java.math.BigDecimal , paramSavings3 : savingsCalculator.modelOfSavings.Savings ) : savingsCalculator.modelOfSavings.SavingsTimePoint
+	{method} -calculateMonths () : java.util.List
+	{method} -calculateMonths ( paramSavings1 : savingsCalculator.modelOfSavings.Savings ) : java.util.List
+	{method} -calculateYear ( paramBigDecimal1 : java.math.BigDecimal ) : java.math.BigDecimal
+}
+
+
+
+
+creditCalculator.MortgageDependenciesCreator -->  creditCalculator.service.MortgageCalculationService : instance
+creditCalculator.modelOfCredit.InputData *--  creditCalculator.modelOfCredit.RateTypes : rateType
+creditCalculator.modelOfCredit.InputData$InputDataBuilder -->  creditCalculator.modelOfCredit.RateTypes : rateType
+creditCalculator.modelOfCredit.Rate *---u  creditCalculator.modelOfCredit.MortgageReference : mortgageReference
+creditCalculator.modelOfCredit.Rate *---l  creditCalculator.modelOfCredit.MortgageResidual : mortgageResidual
+creditCalculator.modelOfCredit.Rate *--r  creditCalculator.modelOfCredit.RateAmounts : rateAmounts
+creditCalculator.modelOfCredit.Rate *--u  creditCalculator.modelOfCredit.MortgageTimePoint : mortgageTimePoint
+creditCalculator.modelOfCredit.Rate$RateBuilder -d-->  creditCalculator.modelOfCredit.MortgageReference:mortgageReference
+creditCalculator.modelOfCredit.Rate$RateBuilder -->  creditCalculator.modelOfCredit.MortgageResidual : mortgageResidual
+creditCalculator.modelOfCredit.Rate$RateBuilder -->  creditCalculator.modelOfCredit.MortgageTimePoint : mortgageTimePoint
+creditCalculator.modelOfCredit.Rate$RateBuilder -->  creditCalculator.modelOfCredit.RateAmounts : rateAmounts
+creditCalculator.modelOfCredit.RateAmounts *--r  creditCalculator.modelOfCredit.Overpayment : overpayment
+creditCalculator.modelOfCredit.RateAmounts$RateAmountsBuilder -->  creditCalculator.modelOfCredit.Overpayment : overpayment
+creditCalculator.service.ConstantAmountsCalculationServiceImpl ..|>  creditCalculator.service.ConstantAmountsCalculationService
+creditCalculator.service.DecreasingAmountsCalculationServiceImpl ..|>  creditCalculator.service.DecreasingAmountsCalculationService
+creditCalculator.service.MortgageCalculationServiceImpl *--  creditCalculator.service.MortgageSummaryService:mortgageSummaryService
+creditCalculator.service.MortgageCalculationServiceImpl *--l  creditCalculator.service.RateCalculationService:rateCalculationService
+creditCalculator.service.MortgageCalculationServiceImpl *------------u  globalServices.PrintingService :printingService
+creditCalculator.service.MortgageCalculationServiceImpl -d..|>  creditCalculator.service.MortgageCalculationService
+creditCalculator.service.OverpaymentCalculationServiceImpl ..|>  creditCalculator.service.OverpaymentCalculationService
+creditCalculator.service.RateAmountsCalculationServiceImpl *--  creditCalculator.service.ConstantAmountsCalculationService : constantAmountsCalculationService
+creditCalculator.service.RateAmountsCalculationServiceImpl *--  creditCalculator.service.DecreasingAmountsCalculationService : decreasingAmountsCalculationService
+creditCalculator.service.RateAmountsCalculationServiceImpl ..|>  creditCalculator.service.RateAmountsCalculationService
+creditCalculator.service.RateCalculationServiceImpl *---u  creditCalculator.service.OverpaymentCalculationService:overpaymentCalculationService
+creditCalculator.service.RateCalculationServiceImpl *---u  creditCalculator.service.RateAmountsCalculationService :rateAmountsCalculationService
+creditCalculator.service.RateCalculationServiceImpl *---u  creditCalculator.service.ReferenceCalculationService :referenceCalculationService
+creditCalculator.service.RateCalculationServiceImpl *---u  creditCalculator.service.ResidualCalculationService :residualCalculationService
+creditCalculator.service.RateCalculationServiceImpl *---u  creditCalculator.service.TimePointCalculationService :timePointCalculationService
+creditCalculator.service.RateCalculationServiceImpl ..|>  creditCalculator.service.RateCalculationService
+creditCalculator.service.ReferenceCalculationServiceImpl ..|>  creditCalculator.service.ReferenceCalculationService
+creditCalculator.service.ResidualCalculationServiceImpl ..|>  creditCalculator.service.ResidualCalculationService
+creditCalculator.service.TimePointCalculationServiceImpl ..|>  creditCalculator.service.TimePointCalculationService
+globalServices.Comparison --->  creditCalculator.modelOfCredit.MortgageSummary : mortgageSummary
+globalServices.Comparison --->  creditCalculator.modelOfCredit.MortgageSummary : withoutOverpaymentMortgageSummary
+globalServices.Comparison -d-->  globalServices.Comparison : instance
+globalServices.Comparison -l-->  savingsCalculator.modelOfSavings.SavingsSummary : savingsSummary
+globalServices.PrintingServiceImpl -r..|>  globalServices.PrintingService
+savingsCalculator.SavingsDependenciesCreator -->  savingsCalculator.service.SavingsCalculationService : instance
+savingsCalculator.modelOfSavings.Savings *--d  savingsCalculator.modelOfSavings.SavingsAmount : savingsAmount
+savingsCalculator.modelOfSavings.Savings *--d  savingsCalculator.modelOfSavings.SavingsTimePoint : savingsTimePoint
+savingsCalculator.modelOfSavings.Savings$SavingsBuilder -u->  savingsCalculator.modelOfSavings.SavingsAmount:savingsAmount
+savingsCalculator.modelOfSavings.Savings$SavingsBuilder -u->  savingsCalculator.modelOfSavings.SavingsTimePoint :savingsTimePoint
+savingsCalculator.modelOfSavings.SavingsData *--  savingsCalculator.modelOfSavings.InterestCapitalization:interestCapitalization
+savingsCalculator.modelOfSavings.SavingsData *--  savingsCalculator.modelOfSavings.SavingsType : savingType
+savingsCalculator.modelOfSavings.SavingsData$SavingsDataBuilder -u->  savingsCalculator.modelOfSavings.InterestCapitalization : interestCapitalization
+savingsCalculator.modelOfSavings.SavingsData$SavingsDataBuilder -u->  savingsCalculator.modelOfSavings.SavingsType :savingType
+savingsCalculator.service.AmountCalculationServiceImpl -u.|>  savingsCalculator.service.AmountCalculationService
+savingsCalculator.service.InterestCalculationServiceImpl -u.|>  savingsCalculator.service.InterestCalculationService
+savingsCalculator.service.SavingsAmountCalculationServiceImpl *--  savingsCalculator.service.AmountCalculationService : amountCalculationService
+savingsCalculator.service.SavingsAmountCalculationServiceImpl *--  savingsCalculator.service.InterestCalculationService : interestCalculationService
+savingsCalculator.service.SavingsAmountCalculationServiceImpl *---u  savingsCalculator.service.SavingsTimeCalculationService : savingsTimeCalculationService
+savingsCalculator.service.SavingsAmountCalculationServiceImpl -d..|>  savingsCalculator.service.SavingsAmountCalculationService
+savingsCalculator.service.SavingsCalculationServiceImpl *----d  globalServices.PrintingService : printingService
+savingsCalculator.service.SavingsCalculationServiceImpl *--u  savingsCalculator.service.SavingsAmountCalculationService : savingsAmountCalculationService
+savingsCalculator.service.SavingsCalculationServiceImpl *--r  savingsCalculator.service.SavingsSummaryService:savingsSummaryService
+savingsCalculator.service.SavingsCalculationServiceImpl ..|>  savingsCalculator.service.SavingsCalculationService
+savingsCalculator.service.SavingsTimeCalculationServiceImpl ..|>  savingsCalculator.service.SavingsTimeCalculationService
+
+hide methods
+
+@enduml
