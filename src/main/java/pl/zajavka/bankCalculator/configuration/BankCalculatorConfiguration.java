@@ -3,22 +3,22 @@ package pl.zajavka.bankCalculator.configuration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.MortgageSummary;
-import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.Rate;
-import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.RateAmounts;
-import pl.zajavka.bankCalculator.creditCalculator.service.Function;
-import pl.zajavka.bankCalculator.creditCalculator.service.MortgageSummaryService;
-import pl.zajavka.bankCalculator.savingsCalculator.modelOfSavings.Savings;
-import pl.zajavka.bankCalculator.savingsCalculator.modelOfSavings.SavingsSummary;
-import pl.zajavka.bankCalculator.savingsCalculator.service.SavingFunction;
-import pl.zajavka.bankCalculator.savingsCalculator.service.SavingsSummaryService;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.MortgageSummary;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.Rate;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.RateAmounts;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.service.Function;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.service.MortgageSummaryService;
+import pl.zajavka.bankCalculator.calculators.savingsCalculator.modelOfSavings.Savings;
+import pl.zajavka.bankCalculator.calculators.savingsCalculator.modelOfSavings.SavingsSummary;
+import pl.zajavka.bankCalculator.calculators.savingsCalculator.service.SavingFunction;
+import pl.zajavka.bankCalculator.calculators.savingsCalculator.service.SavingsSummaryService;
 
 import java.math.BigDecimal;
 import java.util.List;
 
 @Configuration
 @ComponentScan(basePackages = "pl.zajavka")
-public class CalculatorConfiguration {
+public class BankCalculatorConfiguration {
 
     @Bean
     public static MortgageSummaryService create() {
