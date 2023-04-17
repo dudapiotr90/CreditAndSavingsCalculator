@@ -1,14 +1,14 @@
 package pl.zajavka.bankCalculator.creditCalculator.service;
 
-import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.*;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Collections;
 
 public class TestMortgageData {
-    public static InputData someInputData() {
-        return InputData.builder()
+    public static MortgageData someInputData() {
+        return MortgageData.builder()
             .repaymentStartDate(LocalDate.of(2023, 1, 1))
             .monthsDuration(BigDecimal.valueOf(180))
             .amount(BigDecimal.valueOf(140000))

@@ -7,9 +7,11 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.InputData;
-import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.Rate;
-import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.MortgageTimePoint;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.MortgageData;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.Rate;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.MortgageTimePoint;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.service.TimePointCalculationService;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.service.TimePointCalculationServiceImpl;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -59,16 +61,16 @@ class TimePointCalculationServiceImplTest {
     @DisplayName("Calculate first rate's time point")
     void shouldCalculateTimePointForFirstRateCorrectly() {
         //given
-        InputData inputData1 = TestMortgageData.someInputData();
+        MortgageData mortgageData1 = TestMortgageData.someInputData();
 
         MortgageTimePoint expected = TestMortgageData.someTimePoint();
         String expectedExceptionMessage = "This method only accepts rateNumber equal to ONE";
 
         //when
 
-        MortgageTimePoint result = timePointCalculationService.calculate(BigDecimal.ONE, inputData1);
+        MortgageTimePoint result = timePointCalculationService.calculate(BigDecimal.ONE, mortgageData1);
         Throwable exception = Assertions.assertThrows(RuntimeException.class,
-            () -> timePointCalculationService.calculate(BigDecimal.TEN, inputData1));
+            () -> timePointCalculationService.calculate(BigDecimal.TEN, mortgageData1));
 
         //then
         Assertions.assertEquals(expected, result);

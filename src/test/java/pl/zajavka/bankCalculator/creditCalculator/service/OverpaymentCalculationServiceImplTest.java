@@ -5,8 +5,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.InputData;
-import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.Overpayment;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.MortgageData;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.Overpayment;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.service.OverpaymentCalculationService;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.service.OverpaymentCalculationServiceImpl;
 
 import java.math.BigDecimal;
 import java.util.Collections;
@@ -65,14 +67,14 @@ class OverpaymentCalculationServiceImplTest {
         BigDecimal rateNumber
     ) {
         //given
-        InputData inputData = TestMortgageData.someInputData()
+        MortgageData mortgageData = TestMortgageData.someInputData()
             .withOverpaymentSchema(overpaymentSchema);
         Overpayment expected = TestMortgageData.someOverpayment()
             .withAmount(expectedAmount)
             .withProvisionAmount(expectedProvision);
 
         //when
-        Overpayment result = overpaymentCalculationService.calculate(rateNumber, inputData);
+        Overpayment result = overpaymentCalculationService.calculate(rateNumber, mortgageData);
 
         //then
         Assertions.assertEquals(expected, result);
