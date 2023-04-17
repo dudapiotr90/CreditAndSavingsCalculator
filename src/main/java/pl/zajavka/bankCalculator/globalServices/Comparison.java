@@ -1,6 +1,8 @@
 package pl.zajavka.bankCalculator.globalServices;
 
 import lombok.With;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.MortgageSummary;
 import pl.zajavka.bankCalculator.savingsCalculator.modelOfSavings.SavingsSummary;
 
@@ -13,6 +15,7 @@ public class Comparison {
     private MortgageSummary withoutOverpaymentMortgageSummary;
     private SavingsSummary savingsSummary;
 
+//    @Autowired
     private Comparison(
         MortgageSummary mortgageSummary,
         MortgageSummary withoutOverpaymentMortgageSummary,

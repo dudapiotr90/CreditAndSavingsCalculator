@@ -1,5 +1,6 @@
 package pl.zajavka.bankCalculator.savingsCalculator.service;
 
+import org.springframework.stereotype.Service;
 import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.InputData;
 import pl.zajavka.bankCalculator.savingsCalculator.modelOfSavings.Savings;
 import pl.zajavka.bankCalculator.savingsCalculator.modelOfSavings.SavingsData;
@@ -13,6 +14,7 @@ import java.util.List;
 
 import static pl.zajavka.bankCalculator.globalServices.CalculatingMethods.YEAR;
 
+@Service
 public class SavingsTimeCalculationServiceImpl implements SavingsTimeCalculationService {
 
 

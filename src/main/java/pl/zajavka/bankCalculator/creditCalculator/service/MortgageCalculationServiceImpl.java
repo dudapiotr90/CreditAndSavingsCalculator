@@ -2,6 +2,7 @@ package pl.zajavka.bankCalculator.creditCalculator.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.InputData;
 import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.MortgageSummary;
 import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.Rate;
@@ -12,6 +13,7 @@ import java.util.Collections;
 import java.util.List;
 
 @Slf4j
+@Service
 @RequiredArgsConstructor
 public class MortgageCalculationServiceImpl implements MortgageCalculationService {
     private final PrintingService printingService;

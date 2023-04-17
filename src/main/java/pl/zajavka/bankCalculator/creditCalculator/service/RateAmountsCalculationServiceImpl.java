@@ -2,11 +2,13 @@ package pl.zajavka.bankCalculator.creditCalculator.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.InputData;
 import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.Overpayment;
 import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.Rate;
 import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.RateAmounts;
 @Slf4j
+@Service
 @RequiredArgsConstructor
 public class RateAmountsCalculationServiceImpl implements RateAmountsCalculationService {
 

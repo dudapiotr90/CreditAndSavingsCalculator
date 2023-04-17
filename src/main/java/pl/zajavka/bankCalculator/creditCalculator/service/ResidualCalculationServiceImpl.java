@@ -1,5 +1,6 @@
 package pl.zajavka.bankCalculator.creditCalculator.service;
 
+import org.springframework.stereotype.Service;
 import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.*;
 
 import java.math.BigDecimal;
@@ -7,7 +8,7 @@ import java.math.RoundingMode;
 
 import static pl.zajavka.bankCalculator.globalServices.CalculatingMethods.calculateQ;
 import static pl.zajavka.bankCalculator.globalServices.CalculatingMethods.calculateResidualAmount;
-
+@Service
 public class ResidualCalculationServiceImpl implements ResidualCalculationService {
 
     @Override

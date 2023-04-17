@@ -3,6 +3,7 @@ package pl.zajavka.bankCalculator.savingsCalculator.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.InputData;
 import pl.zajavka.bankCalculator.globalServices.Comparison;
 import pl.zajavka.bankCalculator.globalServices.PrintingService;
@@ -18,6 +19,7 @@ import java.util.List;
 import static pl.zajavka.bankCalculator.globalServices.CalculatingMethods.YEAR;
 
 @Slf4j
+@Service
 @RequiredArgsConstructor
 public class SavingsCalculationServiceImpl implements SavingsCalculationService {
 

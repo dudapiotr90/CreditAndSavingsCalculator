@@ -1,12 +1,13 @@
 package pl.zajavka.bankCalculator.creditCalculator.service;
 
+import org.springframework.stereotype.Service;
 import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.InputData;
 import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.Overpayment;
 
 import java.math.BigDecimal;
 import java.util.Map;
 import java.util.Optional;
-
+@Service
 public class OverpaymentCalculationServiceImpl implements OverpaymentCalculationService {
     @Override
     public Overpayment calculate(BigDecimal rateNumber, InputData inputData) {

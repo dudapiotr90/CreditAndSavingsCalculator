@@ -1,5 +1,6 @@
 package pl.zajavka.bankCalculator.savingsCalculator.service;
 
+import org.springframework.stereotype.Service;
 import pl.zajavka.bankCalculator.savingsCalculator.modelOfSavings.Savings;
 import pl.zajavka.bankCalculator.savingsCalculator.modelOfSavings.SavingsData;
 import pl.zajavka.bankCalculator.savingsCalculator.modelOfSavings.SavingsTimePoint;
@@ -12,6 +13,7 @@ import java.util.Map;
 import static pl.zajavka.bankCalculator.globalServices.CalculatingMethods.YEAR;
 import static pl.zajavka.bankCalculator.globalServices.CalculatingMethods.calculateThisYearDeposit;
 
+@Service
 public class InterestCalculationServiceImpl implements InterestCalculationService {
 
 
