@@ -1,6 +1,7 @@
 package pl.zajavka.bankCalculator.creditCalculator.service;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.*;
 
 import java.math.BigDecimal;
@@ -8,6 +9,7 @@ import java.math.RoundingMode;
 
 import static pl.zajavka.bankCalculator.globalServices.CalculatingMethods.calculateResidualAmount;
 @Slf4j
+@Service
 public class ReferenceCalculationServiceImpl implements ReferenceCalculationService {
 
 

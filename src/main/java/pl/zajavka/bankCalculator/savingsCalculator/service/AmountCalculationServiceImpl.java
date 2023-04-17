@@ -1,5 +1,6 @@
 package pl.zajavka.bankCalculator.savingsCalculator.service;
 
+import org.springframework.stereotype.Service;
 import pl.zajavka.bankCalculator.savingsCalculator.modelOfSavings.Savings;
 import pl.zajavka.bankCalculator.savingsCalculator.modelOfSavings.SavingsData;
 import pl.zajavka.bankCalculator.savingsCalculator.modelOfSavings.SavingsTimePoint;
@@ -8,6 +9,7 @@ import java.math.BigDecimal;
 
 import static pl.zajavka.bankCalculator.globalServices.CalculatingMethods.calculateThisYearDeposit;
 
+@Service
 public class AmountCalculationServiceImpl implements AmountCalculationService {
 
     @Override

@@ -1,6 +1,7 @@
 package pl.zajavka.bankCalculator.creditCalculator.service;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.InputData;
 import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.Overpayment;
 import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.Rate;
@@ -11,6 +12,7 @@ import java.math.BigDecimal;
 import static pl.zajavka.bankCalculator.globalServices.CalculatingMethods.*;
 
 @Slf4j
+@Service
 public class DecreasingAmountsCalculationServiceImpl implements DecreasingAmountsCalculationService {
 
     @Override

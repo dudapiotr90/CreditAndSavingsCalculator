@@ -1,53 +1,50 @@
 package pl.zajavka.bankCalculator.globalServices;
 
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Repository;
+import org.springframework.util.ResourceUtils;
 import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.InputData;
 import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.RateTypes;
 import pl.zajavka.bankCalculator.savingsCalculator.modelOfSavings.InterestCapitalization;
 import pl.zajavka.bankCalculator.savingsCalculator.modelOfSavings.SavingsData;
 import pl.zajavka.bankCalculator.savingsCalculator.modelOfSavings.SavingsType;
 
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class InputDataService {
-    private final static Path MORTGAGE_DATA_LOCATION = Paths.get("src/main/resources/inputMortgageData.csv");
-    private final static Path SAVINGS_DATA_LOCATION = Paths.get("src/main/resources/inputSavingsData.csv");
+@Slf4j
+@Repository
+public class InputDataRepository {
+    //    private final static Path MORTGAGE_DATA_CSV = Paths.get("src/main/resources/inputMortgageData.csv");
+    private final static String MORTGAGE_DATA_CSV = "classpath:inputMortgageData.csv";
 
-    private static Map<String, List<String>> groupFileToMap(Stream<String> inputDataLines) {
-        return inputDataLines
-            .collect(Collectors.groupingBy(line -> line.split(";")[0]));
-    }
+    //    private final static Path SAVINGS_DATA_CSV = Paths.get("src/main/resources/inputSavingsData.csv");
+    private final static String SAVINGS_DATA_CSV = "classpath:inputSavingsData.csv";
 
-    private static Map<String, String> extractProperMapValues(Map<String, List<String>> fileContent) {
-        return fileContent.entrySet().stream()
-            .collect(Collectors.toMap(
-                Map.Entry::getKey,
-                entry -> entry.getValue().get(0).split(";")[1]
-            ));
-    }
+//    private static Map<String, List<String>> groupFileToMap(Stream<String> inputDataLines) {
+//        return inputDataLines
+//            .collect(Collectors.groupingBy(line -> line.split(";")[0]));
+//    }
 
-    public InputData readMortgageDataFile() throws IOException {
+    public Optional<InputData> readMortgageDataFile() {
 
-        Map<String, List<String>> mortgageFileContent;
-        try (
-            Stream<String> inputDataLines = Files.lines(MORTGAGE_DATA_LOCATION)
-        ) {
-            mortgageFileContent = groupFileToMap(inputDataLines);
-        }
+        Map<String, List<String>> mortgageFileContent = readFile(MORTGAGE_DATA_CSV);
+//        try (
+//            Stream<String> inputDataLines = Files.lines(MORTGAGE_DATA_CSV)
+//        ) {
+//            mortgageFileContent = groupFileToMap(inputDataLines);
+//        }
 
         firstValidateInputDataFile(mortgageFileContent);
         secondValidateInputDataFile(mortgageFileContent);
 
         Map<String, String> inputData = extractProperMapValues(mortgageFileContent);
 
-        return InputData.builder()
+        return Optional.ofNullable(InputData.builder()
             .repaymentStartDate(Optional.ofNullable(
                 inputData.get("repaymentStartDate")).map(LocalDate::parse).orElseThrow())
             .monthsDuration(Optional.ofNullable(
@@ -74,42 +71,51 @@ public class InputDataService {
                 inputData.get("mortgageRateNumberToPrint")).map(Integer::parseInt).orElseThrow())
             .compareToSavings(Optional.ofNullable(
                 inputData.get("compareToSavings")).map(Boolean::parseBoolean).orElseThrow())
-            .build();
+            .build());
 
     }
 
-    public SavingsData readSavingsDataFile() throws IOException {
-        Map<String, List<String>> savingsFileContent = groupFileToMap(Files.readString(SAVINGS_DATA_LOCATION).lines());
+    public Optional<SavingsData> readSavingsDataFile() {
+        Map<String, List<String>> savingsFileContent = readFile(SAVINGS_DATA_CSV);
+//        Map<String, List<String>> savingsFileContent = groupFileToMap(Files.readString(SAVINGS_DATA_CSV).lines());
 
         firstValidateInputDataFile(savingsFileContent);
         secondValidateInputDataFile(savingsFileContent);
 
         Map<String, String> savingsData = extractProperMapValues(savingsFileContent);
 
-        return new SavingsData(
-            Optional.ofNullable(
-                savingsData.get("depositDuration")).map(BigDecimal::new).orElseThrow(),
-            Optional.ofNullable(
-                savingsData.get("depositSchema")).map(this::createSchema).orElse(Collections.emptyMap()),
-            Optional.ofNullable(
-                savingsData.get("savingType")).map(SavingsType::valueOf).orElseThrow(),
-            Optional.ofNullable(
-                savingsData.get("depositInterest")).map(BigDecimal::new).orElseThrow(),
-            Optional.ofNullable(
-                savingsData.get("interestCapitalization")).map(InterestCapitalization::valueOf).orElseThrow(),
-            Optional.ofNullable(
-                savingsData.get("tax")).map(BigDecimal::new).orElseThrow()
-        );
+        return Optional.ofNullable(SavingsData.builder()
+            .depositDuration(Optional.ofNullable(
+                savingsData.get("depositDuration")).map(BigDecimal::new).orElseThrow())
+            .depositSchema(Optional.ofNullable(
+                savingsData.get("depositSchema")).map(this::createSchema).orElse(Collections.emptyMap()))
+            .savingType(Optional.ofNullable(
+                savingsData.get("savingType")).map(SavingsType::valueOf).orElseThrow())
+            .depositInterest(Optional.ofNullable(
+                savingsData.get("depositInterest")).map(BigDecimal::new).orElseThrow())
+            .interestCapitalization(Optional.ofNullable(
+                savingsData.get("interestCapitalization")).map(InterestCapitalization::valueOf).orElseThrow())
+            .tax(Optional.ofNullable(
+                savingsData.get("tax")).map(BigDecimal::new).orElseThrow())
+            .build());
     }
 
-    private Map<Integer, BigDecimal> createSchema(String schema) {
-        return Stream.of(schema.split(","))
-            .map(entry -> Map.entry(entry.split(":")[0], entry.split(":")[1]))
+    private Map<String, List<String>> readFile(String dataFile) {
+        try {
+            return Files.readString(ResourceUtils.getFile(dataFile).toPath())
+                .lines()
+                .collect(Collectors.groupingBy(line -> line.split(";")[0]));
+        } catch (Exception e) {
+            log.error("Error loading inputData, stopping program! Error: [{}]", e.getMessage());
+            return Map.of();
+        }
+    }
+
+    private Map<String, String> extractProperMapValues(Map<String, List<String>> fileContent) {
+        return fileContent.entrySet().stream()
             .collect(Collectors.toMap(
-                mapEntry -> Integer.parseInt(mapEntry.getKey()),
-                mapEntry -> new BigDecimal(mapEntry.getValue()),
-                (v1, v2) -> v1,
-                TreeMap::new
+                Map.Entry::getKey,
+                entry -> entry.getValue().get(0).split(";")[1]
             ));
     }
 
@@ -128,5 +134,16 @@ public class InputDataService {
             .isPresent()) {
             throw new IllegalArgumentException("Configuration mismatch");
         }
+    }
+
+    private Map<Integer, BigDecimal> createSchema(String schema) {
+        return Stream.of(schema.split(","))
+            .map(entry -> Map.entry(entry.split(":")[0], entry.split(":")[1]))
+            .collect(Collectors.toMap(
+                mapEntry -> Integer.parseInt(mapEntry.getKey()),
+                mapEntry -> new BigDecimal(mapEntry.getValue()),
+                (v1, v2) -> v1,
+                TreeMap::new
+            ));
     }
 }

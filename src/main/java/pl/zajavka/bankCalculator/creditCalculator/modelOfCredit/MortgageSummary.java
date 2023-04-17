@@ -7,6 +7,4 @@ public record MortgageSummary(
     BigDecimal overpaymentProvisions,
     BigDecimal totalLosses,
     BigDecimal totalCapital
-){
-
-}
+){}

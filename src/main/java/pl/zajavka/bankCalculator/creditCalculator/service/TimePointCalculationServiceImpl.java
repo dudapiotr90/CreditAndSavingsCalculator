@@ -1,5 +1,6 @@
 package pl.zajavka.bankCalculator.creditCalculator.service;
 
+import org.springframework.stereotype.Service;
 import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.InputData;
 import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.Rate;
 import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.MortgageTimePoint;
@@ -11,6 +12,7 @@ import java.time.temporal.ChronoUnit;
 
 import static pl.zajavka.bankCalculator.globalServices.CalculatingMethods.YEAR;
 
+@Service
 public class TimePointCalculationServiceImpl implements TimePointCalculationService {
 
 

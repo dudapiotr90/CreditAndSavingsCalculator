@@ -2,6 +2,7 @@ package pl.zajavka.bankCalculator.savingsCalculator.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.InputData;
 import pl.zajavka.bankCalculator.savingsCalculator.modelOfSavings.Savings;
 import pl.zajavka.bankCalculator.savingsCalculator.modelOfSavings.SavingsAmount;
@@ -10,6 +11,7 @@ import pl.zajavka.bankCalculator.savingsCalculator.modelOfSavings.SavingsTimePoi
 
 import java.math.BigDecimal;
 @Slf4j
+@Service
 @RequiredArgsConstructor
 public class SavingsAmountCalculationServiceImpl implements SavingsAmountCalculationService {
 

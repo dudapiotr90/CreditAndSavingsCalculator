@@ -1,6 +1,7 @@
 package pl.zajavka.bankCalculator.globalServices;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.InputData;
 import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.MortgageSummary;
 import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.Rate;
@@ -20,6 +21,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 @Slf4j
+@Service
 public class PrintingServiceImpl implements PrintingService {
 
     private static final String SEPARATOR = createSeparator('\u2501', 200);
