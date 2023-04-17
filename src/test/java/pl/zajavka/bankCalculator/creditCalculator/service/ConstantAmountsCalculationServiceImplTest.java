@@ -11,8 +11,8 @@ import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.Mort
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.Overpayment;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.Rate;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.RateAmounts;
-import pl.zajavka.bankCalculator.calculators.creditCalculator.service.ConstantAmountsCalculationService;
-import pl.zajavka.bankCalculator.calculators.creditCalculator.service.ConstantAmountsCalculationServiceImpl;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.services.ConstantAmountsCalculationService;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.services.ConstantAmountsCalculationServiceImpl;
 
 import java.math.BigDecimal;
 import java.util.stream.Stream;
