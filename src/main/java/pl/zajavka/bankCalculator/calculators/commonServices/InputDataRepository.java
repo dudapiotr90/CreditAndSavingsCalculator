@@ -19,25 +19,13 @@ import java.util.stream.Stream;
 @Slf4j
 @Repository
 public class InputDataRepository {
-    //    private final static Path MORTGAGE_DATA_CSV = Paths.get("src/main/resources/inputMortgageData.csv");
     private final static String MORTGAGE_DATA_CSV = "classpath:inputMortgageData.csv";
-
-    //    private final static Path SAVINGS_DATA_CSV = Paths.get("src/main/resources/inputSavingsData.csv");
     private final static String SAVINGS_DATA_CSV = "classpath:inputSavingsData.csv";
 
-//    private static Map<String, List<String>> groupFileToMap(Stream<String> inputDataLines) {
-//        return inputDataLines
-//            .collect(Collectors.groupingBy(line -> line.split(";")[0]));
-//    }
 
     public Optional<MortgageData> readMortgageDataFile() {
 
         Map<String, List<String>> mortgageFileContent = readFile(MORTGAGE_DATA_CSV);
-//        try (
-//            Stream<String> inputDataLines = Files.lines(MORTGAGE_DATA_CSV)
-//        ) {
-//            mortgageFileContent = groupFileToMap(inputDataLines);
-//        }
 
         firstValidateInputDataFile(mortgageFileContent);
         secondValidateInputDataFile(mortgageFileContent);
@@ -77,7 +65,6 @@ public class InputDataRepository {
 
     public Optional<SavingsData> readSavingsDataFile() {
         Map<String, List<String>> savingsFileContent = readFile(SAVINGS_DATA_CSV);
-//        Map<String, List<String>> savingsFileContent = groupFileToMap(Files.readString(SAVINGS_DATA_CSV).lines());
 
         firstValidateInputDataFile(savingsFileContent);
         secondValidateInputDataFile(savingsFileContent);

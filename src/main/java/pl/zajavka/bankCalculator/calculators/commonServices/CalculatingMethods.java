@@ -6,7 +6,6 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
 
 public class CalculatingMethods {
     public static final BigDecimal YEAR = BigDecimal.valueOf(12);
@@ -80,9 +79,5 @@ public class CalculatingMethods {
             }
         }
         return totalDeposit;
-    }
-
-    public static Map<Integer, BigDecimal> printSchema(Map<Integer, BigDecimal> overPaymentSchema) {
-        return new TreeMap<>(overPaymentSchema);
     }
 }
