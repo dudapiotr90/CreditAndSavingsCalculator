@@ -7,8 +7,8 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.MortgageData;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.Overpayment;
-import pl.zajavka.bankCalculator.calculators.creditCalculator.service.OverpaymentCalculationService;
-import pl.zajavka.bankCalculator.calculators.creditCalculator.service.OverpaymentCalculationServiceImpl;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.services.OverpaymentCalculationService;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.services.OverpaymentCalculationServiceImpl;
 
 import java.math.BigDecimal;
 import java.util.Collections;

@@ -7,9 +7,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.*;
-import pl.zajavka.bankCalculator.calculators.creditCalculator.service.MortgageException;
-import pl.zajavka.bankCalculator.calculators.creditCalculator.service.ReferenceCalculationService;
-import pl.zajavka.bankCalculator.calculators.creditCalculator.service.ReferenceCalculationServiceImpl;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.services.MortgageException;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.services.ReferenceCalculationService;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.services.ReferenceCalculationServiceImpl;
 
 import java.math.BigDecimal;
 import java.util.stream.Stream;

@@ -7,8 +7,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.*;
-import pl.zajavka.bankCalculator.calculators.creditCalculator.service.ResidualCalculationService;
-import pl.zajavka.bankCalculator.calculators.creditCalculator.service.ResidualCalculationServiceImpl;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.services.ResidualCalculationService;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.services.ResidualCalculationServiceImpl;
 
 import java.math.BigDecimal;
 import java.util.stream.Stream;

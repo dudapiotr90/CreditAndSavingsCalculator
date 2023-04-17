@@ -10,8 +10,8 @@ import org.junit.jupiter.params.provider.MethodSource;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.MortgageData;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.Rate;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.MortgageTimePoint;
-import pl.zajavka.bankCalculator.calculators.creditCalculator.service.TimePointCalculationService;
-import pl.zajavka.bankCalculator.calculators.creditCalculator.service.TimePointCalculationServiceImpl;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.services.TimePointCalculationService;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.services.TimePointCalculationServiceImpl;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

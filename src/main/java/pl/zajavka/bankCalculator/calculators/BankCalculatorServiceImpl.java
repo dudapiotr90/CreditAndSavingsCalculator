@@ -4,9 +4,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.zajavka.bankCalculator.calculators.commonServices.InputDataRepository;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.MortgageData;
-import pl.zajavka.bankCalculator.calculators.creditCalculator.service.MortgageCalculationService;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.services.MortgageCalculationService;
 import pl.zajavka.bankCalculator.calculators.savingsCalculator.modelOfSavings.SavingsData;
-import pl.zajavka.bankCalculator.calculators.savingsCalculator.service.SavingsCalculationService;
+import pl.zajavka.bankCalculator.calculators.savingsCalculator.services.SavingsCalculationService;
 
 import java.util.Optional;
 

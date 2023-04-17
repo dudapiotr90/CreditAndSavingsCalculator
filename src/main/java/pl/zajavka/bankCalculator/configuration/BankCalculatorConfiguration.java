@@ -6,12 +6,12 @@ import org.springframework.context.annotation.Configuration;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.MortgageSummary;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.Rate;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.RateAmounts;
-import pl.zajavka.bankCalculator.calculators.creditCalculator.service.Function;
-import pl.zajavka.bankCalculator.calculators.creditCalculator.service.MortgageSummaryService;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.services.Function;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.services.MortgageSummaryService;
 import pl.zajavka.bankCalculator.calculators.savingsCalculator.modelOfSavings.Savings;
 import pl.zajavka.bankCalculator.calculators.savingsCalculator.modelOfSavings.SavingsSummary;
-import pl.zajavka.bankCalculator.calculators.savingsCalculator.service.SavingFunction;
-import pl.zajavka.bankCalculator.calculators.savingsCalculator.service.SavingsSummaryService;
+import pl.zajavka.bankCalculator.calculators.savingsCalculator.services.SavingFunction;
+import pl.zajavka.bankCalculator.calculators.savingsCalculator.services.SavingsSummaryService;
 
 import java.math.BigDecimal;
 import java.util.List;

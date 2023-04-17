@@ -6,8 +6,8 @@ import org.junit.jupiter.api.Test;
 import pl.zajavka.bankCalculator.calculators.savingsCalculator.modelOfSavings.Savings;
 import pl.zajavka.bankCalculator.calculators.savingsCalculator.modelOfSavings.SavingsData;
 import pl.zajavka.bankCalculator.calculators.savingsCalculator.modelOfSavings.SavingsTimePoint;
-import pl.zajavka.bankCalculator.calculators.savingsCalculator.service.InterestCalculationService;
-import pl.zajavka.bankCalculator.calculators.savingsCalculator.service.InterestCalculationServiceImpl;
+import pl.zajavka.bankCalculator.calculators.savingsCalculator.services.InterestCalculationService;
+import pl.zajavka.bankCalculator.calculators.savingsCalculator.services.InterestCalculationServiceImpl;
 
 import java.math.BigDecimal;
 

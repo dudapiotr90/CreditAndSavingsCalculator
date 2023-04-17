@@ -8,8 +8,8 @@ import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.Mort
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.MortgageResidual;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.Rate;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.RateAmounts;
-import pl.zajavka.bankCalculator.calculators.creditCalculator.service.DecreasingAmountsCalculationService;
-import pl.zajavka.bankCalculator.calculators.creditCalculator.service.DecreasingAmountsCalculationServiceImpl;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.services.DecreasingAmountsCalculationService;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.services.DecreasingAmountsCalculationServiceImpl;
 
 import java.math.BigDecimal;
 
