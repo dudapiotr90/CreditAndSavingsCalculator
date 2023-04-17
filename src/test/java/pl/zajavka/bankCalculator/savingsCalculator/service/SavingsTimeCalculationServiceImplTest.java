@@ -3,11 +3,13 @@ package pl.zajavka.bankCalculator.savingsCalculator.service;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.InputData;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.MortgageData;
+import pl.zajavka.bankCalculator.calculators.savingsCalculator.service.SavingsTimeCalculationService;
+import pl.zajavka.bankCalculator.calculators.savingsCalculator.service.SavingsTimeCalculationServiceImpl;
 import pl.zajavka.bankCalculator.creditCalculator.service.TestMortgageData;
-import pl.zajavka.bankCalculator.savingsCalculator.modelOfSavings.Savings;
-import pl.zajavka.bankCalculator.savingsCalculator.modelOfSavings.SavingsData;
-import pl.zajavka.bankCalculator.savingsCalculator.modelOfSavings.SavingsTimePoint;
+import pl.zajavka.bankCalculator.calculators.savingsCalculator.modelOfSavings.Savings;
+import pl.zajavka.bankCalculator.calculators.savingsCalculator.modelOfSavings.SavingsData;
+import pl.zajavka.bankCalculator.calculators.savingsCalculator.modelOfSavings.SavingsTimePoint;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -27,7 +29,7 @@ class SavingsTimeCalculationServiceImplTest {
         //given
         SavingsData savingsData = TestSavingsData.someSavingsData();
         BigDecimal savingsNumber = BigDecimal.ONE;
-        InputData inputData = TestMortgageData.someInputData()
+        MortgageData mortgageData = TestMortgageData.someInputData()
             .withRepaymentStartDate(LocalDate.of(2017,6,8));
 
         SavingsTimePoint expected = TestSavingsData.someSavingsTimePoint()
@@ -36,9 +38,9 @@ class SavingsTimeCalculationServiceImplTest {
 
 
         //when
-        SavingsTimePoint result = savingsTimeCalculationService.calculate(savingsData, savingsNumber, inputData);
+        SavingsTimePoint result = savingsTimeCalculationService.calculate(savingsData, savingsNumber, mortgageData);
         Throwable exception = Assertions.assertThrows(RuntimeException.class,
-            () -> savingsTimeCalculationService.calculate(savingsData,BigDecimal.TEN, inputData));
+            () -> savingsTimeCalculationService.calculate(savingsData,BigDecimal.TEN, mortgageData));
         //then
         Assertions.assertEquals(expected,result);
         Assertions.assertEquals(expectedExceptionMessage,exception.getMessage());

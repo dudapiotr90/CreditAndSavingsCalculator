@@ -6,7 +6,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.*;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.*;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.service.ResidualCalculationService;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.service.ResidualCalculationServiceImpl;
 
 import java.math.BigDecimal;
 import java.util.stream.Stream;
@@ -25,8 +27,8 @@ class ResidualCalculationServiceImplTest {
     @Test
     void shouldCalculateResidualForFirstRateCorrectly() {
         //given
-        InputData inputData1 = TestMortgageData.someInputData();
-        InputData inputData2 = TestMortgageData.someInputData()
+        MortgageData mortgageData1 = TestMortgageData.someInputData();
+        MortgageData mortgageData2 = TestMortgageData.someInputData()
             .withAmount(BigDecimal.ZERO);
         RateAmounts rateAmounts = TestMortgageData.someRateAmounts()
             .withOverpayment(TestMortgageData.someOverpayment());
@@ -41,8 +43,8 @@ class ResidualCalculationServiceImplTest {
 
 
         //when
-        MortgageResidual result1 = residualCalculationService.calculate(rateAmounts, inputData1);
-        MortgageResidual result2 = residualCalculationService.calculate(rateAmounts, inputData2);
+        MortgageResidual result1 = residualCalculationService.calculate(rateAmounts, mortgageData1);
+        MortgageResidual result2 = residualCalculationService.calculate(rateAmounts, mortgageData2);
 
         //then
         Assertions.assertEquals(expected1, result1);
@@ -63,7 +65,7 @@ class ResidualCalculationServiceImplTest {
         String overpaymentReduceWay
     ) {
         //given
-        InputData inputData = TestMortgageData.someInputData()
+        MortgageData mortgageData = TestMortgageData.someInputData()
             .withAmount(mortgageAmount)
             .withOverpaymentReduceWay(overpaymentReduceWay)
             .withRateType(rateType);
@@ -80,7 +82,7 @@ class ResidualCalculationServiceImplTest {
             .withDuration(expectedDuration);
 
         //when
-        MortgageResidual result = residualCalculationService.calculate(rateAmounts, rate, inputData);
+        MortgageResidual result = residualCalculationService.calculate(rateAmounts, rate, mortgageData);
 
         //then
         Assertions.assertEquals(expected,result);

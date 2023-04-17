@@ -6,7 +6,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.*;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.*;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.service.MortgageException;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.service.ReferenceCalculationService;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.service.ReferenceCalculationServiceImpl;
 
 import java.math.BigDecimal;
 import java.util.stream.Stream;
@@ -92,7 +95,7 @@ class ReferenceCalculationServiceImplTest {
         String overpaymentReduceWay
     ) {
         //given
-        InputData inputData = TestMortgageData.someInputData()
+        MortgageData mortgageData = TestMortgageData.someInputData()
             .withAmount(mortgageAmount)
             .withOverpaymentReduceWay(overpaymentReduceWay);
         Overpayment overpayment = TestMortgageData.someOverpayment()
@@ -104,7 +107,7 @@ class ReferenceCalculationServiceImplTest {
         );
 
         //when
-        MortgageReference result = referenceCalculationService.calculate(inputData, overpayment);
+        MortgageReference result = referenceCalculationService.calculate(mortgageData, overpayment);
 
 
         //then
@@ -122,7 +125,7 @@ class ReferenceCalculationServiceImplTest {
         BigDecimal residualAmount
     ) {
         //given
-        InputData inputData = TestMortgageData.someInputData()
+        MortgageData mortgageData = TestMortgageData.someInputData()
             .withOverpaymentReduceWay(overpaymentReduceWay);
 
         RateAmounts rateAmounts = TestMortgageData.someRateAmounts()
@@ -136,7 +139,7 @@ class ReferenceCalculationServiceImplTest {
         MortgageReference expected = new MortgageReference(expectedAmount, expectedDuration);
 
         //when
-        MortgageReference result = referenceCalculationService.calculate(inputData, rateAmounts, rate);
+        MortgageReference result = referenceCalculationService.calculate(mortgageData, rateAmounts, rate);
 
         //then
         Assertions.assertEquals(expected, result);
@@ -146,11 +149,11 @@ class ReferenceCalculationServiceImplTest {
     @Test
     void shouldThrowMortgageExceptionCorrectly() {
         //given
-        InputData inputData = TestMortgageData.someInputData().withOverpaymentReduceWay("Changeable");
+        MortgageData mortgageData = TestMortgageData.someInputData().withOverpaymentReduceWay("Changeable");
         Rate rate = TestMortgageData.someRate();
         //when
         Throwable exception = Assertions.assertThrows(MortgageException.class,
-            () -> referenceCalculationService.calculate(inputData, null, rate));
+            () -> referenceCalculationService.calculate(mortgageData, null, rate));
         //then
         Assertions.assertEquals("Case not handled", exception.getMessage());
     }

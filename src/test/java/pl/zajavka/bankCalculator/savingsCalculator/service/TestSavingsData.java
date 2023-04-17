@@ -1,6 +1,6 @@
 package pl.zajavka.bankCalculator.savingsCalculator.service;
 
-import pl.zajavka.bankCalculator.savingsCalculator.modelOfSavings.*;
+import pl.zajavka.bankCalculator.calculators.savingsCalculator.modelOfSavings.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

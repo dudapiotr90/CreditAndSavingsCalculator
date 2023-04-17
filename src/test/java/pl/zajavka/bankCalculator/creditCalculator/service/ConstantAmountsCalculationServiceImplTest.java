@@ -7,10 +7,12 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.InputData;
-import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.Overpayment;
-import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.Rate;
-import pl.zajavka.bankCalculator.creditCalculator.modelOfCredit.RateAmounts;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.MortgageData;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.Overpayment;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.Rate;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.RateAmounts;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.service.ConstantAmountsCalculationService;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.service.ConstantAmountsCalculationServiceImpl;
 
 import java.math.BigDecimal;
 import java.util.stream.Stream;
@@ -67,7 +69,7 @@ class ConstantAmountsCalculationServiceImplTest {
         BigDecimal capitalAmount
     ) {
         //given
-        InputData inputData = TestMortgageData.someInputData().withOverpaymentReduceWay(overpaymentReduceWay);
+        MortgageData mortgageData = TestMortgageData.someInputData().withOverpaymentReduceWay(overpaymentReduceWay);
 
         Overpayment overpayment = TestMortgageData.someOverpayment().withAmount(overpaymentAmount);
         RateAmounts expected = TestMortgageData.someRateAmounts()
@@ -77,7 +79,7 @@ class ConstantAmountsCalculationServiceImplTest {
             .withCapitalAmount(capitalAmount);
 
         //when
-        RateAmounts result = constantAmountsCalculationService.calculate(inputData,overpayment);
+        RateAmounts result = constantAmountsCalculationService.calculate(mortgageData,overpayment);
 
         //then
         Assertions.assertEquals(expected,result);
@@ -88,7 +90,7 @@ class ConstantAmountsCalculationServiceImplTest {
     @DisplayName("Calculate constant rate amounts for other rates")
     void shouldCalculateRateAmountsForOtherRatesCorrectly() {
         //given
-        InputData inputData = TestMortgageData.someInputData();
+        MortgageData mortgageData = TestMortgageData.someInputData();
         Rate rate = TestMortgageData.someRate();
         RateAmounts expected = TestMortgageData.someRateAmounts()
             .withRateAmount(BigDecimal.valueOf(1520.84))
@@ -96,7 +98,7 @@ class ConstantAmountsCalculationServiceImplTest {
             .withCapitalAmount(BigDecimal.valueOf(1183.38));
 
         //when
-        RateAmounts result = constantAmountsCalculationService.calculate(inputData, null, rate);
+        RateAmounts result = constantAmountsCalculationService.calculate(mortgageData, null, rate);
 
 
 

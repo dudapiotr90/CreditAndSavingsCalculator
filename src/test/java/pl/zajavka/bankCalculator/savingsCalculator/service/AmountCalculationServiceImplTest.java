@@ -3,9 +3,11 @@ package pl.zajavka.bankCalculator.savingsCalculator.service;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import pl.zajavka.bankCalculator.savingsCalculator.modelOfSavings.Savings;
-import pl.zajavka.bankCalculator.savingsCalculator.modelOfSavings.SavingsData;
-import pl.zajavka.bankCalculator.savingsCalculator.modelOfSavings.SavingsTimePoint;
+import pl.zajavka.bankCalculator.calculators.savingsCalculator.modelOfSavings.Savings;
+import pl.zajavka.bankCalculator.calculators.savingsCalculator.modelOfSavings.SavingsData;
+import pl.zajavka.bankCalculator.calculators.savingsCalculator.modelOfSavings.SavingsTimePoint;
+import pl.zajavka.bankCalculator.calculators.savingsCalculator.service.AmountCalculationService;
+import pl.zajavka.bankCalculator.calculators.savingsCalculator.service.AmountCalculationServiceImpl;
 
 import java.math.BigDecimal;
 
