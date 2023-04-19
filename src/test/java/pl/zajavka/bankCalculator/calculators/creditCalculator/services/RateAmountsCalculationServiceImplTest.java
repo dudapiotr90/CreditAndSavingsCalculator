@@ -35,8 +35,8 @@ class RateAmountsCalculationServiceImplTest {
 
         RateAmounts expected = TestMortgageData.someRateAmounts();
 
-        Mockito.when(constantAmountsCalculationService.calculate(any(), any())).thenReturn(expected);
-        Mockito.when(decreasingAmountsCalculationService.calculate(any(), any())).thenReturn(expected);
+        Mockito.when(constantAmountsCalculationService.calculate(any(MortgageData.class), any(Overpayment.class))).thenReturn(expected);
+        Mockito.when(decreasingAmountsCalculationService.calculate(any(MortgageData.class), any(Overpayment.class))).thenReturn(expected);
 
         // when
         RateAmounts result1 = rateAmountsCalculationService.calculate(mortgageData1, overpayment);
@@ -60,8 +60,10 @@ class RateAmountsCalculationServiceImplTest {
 
         RateAmounts expected = TestMortgageData.someRateAmounts();
 
-        Mockito.when(constantAmountsCalculationService.calculate(any(), any(),any())).thenReturn(expected);
-        Mockito.when(decreasingAmountsCalculationService.calculate(any(), any(),any())).thenReturn(expected);
+        Mockito.when(constantAmountsCalculationService.calculate(any(MortgageData.class), any(Overpayment.class),
+            any(Rate.class))).thenReturn(expected);
+        Mockito.when(decreasingAmountsCalculationService.calculate(any(MortgageData.class), any(Overpayment.class),
+            any(Rate.class))).thenReturn(expected);
 
         // when
         RateAmounts result1 = rateAmountsCalculationService.calculate(mortgageData1, overpayment,rate);
