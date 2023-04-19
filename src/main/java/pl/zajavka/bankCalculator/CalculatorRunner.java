@@ -7,7 +7,7 @@ import pl.zajavka.bankCalculator.calculators.BankCalculatorService;
 import pl.zajavka.bankCalculator.configuration.BankCalculatorConfiguration;
 
 @Slf4j
-public class ProjectRunner {
+public class CalculatorRunner {
 
     public static void main(String[] args) {
 
