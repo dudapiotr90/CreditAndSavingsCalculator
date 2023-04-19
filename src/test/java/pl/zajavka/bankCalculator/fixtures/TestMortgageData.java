@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.util.Collections;
 
 public class TestMortgageData {
-    public static MortgageData someInputData() {
+    public static MortgageData someMortgageData() {
         return MortgageData.builder()
             .repaymentStartDate(LocalDate.of(2023, 1, 1))
             .monthsDuration(BigDecimal.valueOf(180))

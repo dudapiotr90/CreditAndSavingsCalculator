@@ -94,7 +94,7 @@ class ReferenceCalculationServiceImplTest {
         String overpaymentReduceWay
     ) {
         //given
-        MortgageData mortgageData = TestMortgageData.someInputData()
+        MortgageData mortgageData = TestMortgageData.someMortgageData()
             .withAmount(mortgageAmount)
             .withOverpaymentReduceWay(overpaymentReduceWay);
         Overpayment overpayment = TestMortgageData.someOverpayment()
@@ -124,7 +124,7 @@ class ReferenceCalculationServiceImplTest {
         BigDecimal residualAmount
     ) {
         //given
-        MortgageData mortgageData = TestMortgageData.someInputData()
+        MortgageData mortgageData = TestMortgageData.someMortgageData()
             .withOverpaymentReduceWay(overpaymentReduceWay);
 
         RateAmounts rateAmounts = TestMortgageData.someRateAmounts()
@@ -148,7 +148,7 @@ class ReferenceCalculationServiceImplTest {
     @Test
     void shouldThrowMortgageExceptionCorrectly() {
         //given
-        MortgageData mortgageData = TestMortgageData.someInputData().withOverpaymentReduceWay("Changeable");
+        MortgageData mortgageData = TestMortgageData.someMortgageData().withOverpaymentReduceWay("Changeable");
         Rate rate = TestMortgageData.someRate();
         //when
         Throwable exception = Assertions.assertThrows(MortgageException.class,

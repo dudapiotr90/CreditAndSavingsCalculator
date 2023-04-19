@@ -66,7 +66,7 @@ class OverpaymentCalculationServiceImplTest {
         BigDecimal rateNumber
     ) {
         //given
-        MortgageData mortgageData = TestMortgageData.someInputData()
+        MortgageData mortgageData = TestMortgageData.someMortgageData()
             .withOverpaymentSchema(overpaymentSchema);
         Overpayment expected = TestMortgageData.someOverpayment()
             .withAmount(expectedAmount)

@@ -27,7 +27,7 @@ class SavingsTimeCalculationServiceImplTest {
         //given
         SavingsData savingsData = TestSavingsData.someSavingsData();
         BigDecimal savingsNumber = BigDecimal.ONE;
-        MortgageData mortgageData = TestMortgageData.someInputData()
+        MortgageData mortgageData = TestMortgageData.someMortgageData()
             .withRepaymentStartDate(LocalDate.of(2017,6,8));
 
         SavingsTimePoint expected = TestSavingsData.someSavingsTimePoint()

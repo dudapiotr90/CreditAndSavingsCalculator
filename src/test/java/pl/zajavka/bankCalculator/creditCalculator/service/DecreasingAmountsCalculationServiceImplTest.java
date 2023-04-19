@@ -25,7 +25,7 @@ class DecreasingAmountsCalculationServiceImplTest {
     @DisplayName("Calculate decreasing rate amounts for first rate")
     void shouldCalculateRateAmountsForFirstRateCorrectly() {
         //given
-        MortgageData mortgageData = TestMortgageData.someInputData();
+        MortgageData mortgageData = TestMortgageData.someMortgageData();
         RateAmounts expected = TestMortgageData.someRateAmounts()
             .withRateAmount(BigDecimal.valueOf(1244.45))
             .withInterest(BigDecimal.valueOf(466.67))
@@ -40,7 +40,7 @@ class DecreasingAmountsCalculationServiceImplTest {
     @DisplayName("Calculate decreasing rate amounts for other rates")
     void shouldCalculateRateAmountsForOtherRatesCorrectly() {
         //given
-        MortgageData mortgageData = TestMortgageData.someInputData();
+        MortgageData mortgageData = TestMortgageData.someMortgageData();
 
         Rate rate1 = TestMortgageData.someRate();
         RateAmounts expected1 = TestMortgageData.someRateAmounts()
