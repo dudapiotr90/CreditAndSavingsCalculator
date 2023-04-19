@@ -41,7 +41,7 @@ public class TestSavingsData {
             .build();
     }
 
-    private static SavingsAmount someSavingsAmount() {
+    public static SavingsAmount someSavingsAmount() {
         return SavingsAmount.builder()
             .savingAmount(BigDecimal.valueOf(14957.12))
             .interestAmount(BigDecimal.valueOf(975.77))
