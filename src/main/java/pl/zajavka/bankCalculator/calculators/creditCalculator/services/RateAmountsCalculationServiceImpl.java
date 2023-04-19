@@ -7,6 +7,7 @@ import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.Mort
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.Overpayment;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.Rate;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.RateAmounts;
+
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -18,30 +19,19 @@ public class RateAmountsCalculationServiceImpl implements RateAmountsCalculation
 
     @Override
     public RateAmounts calculate(MortgageData mortgageData, Overpayment overpayment) {
-        switch (mortgageData.rateType()) {
-            case CONSTANT:
-                return constantAmountsCalculationService.calculate(mortgageData, overpayment);
-            case DECREASING:
-                return decreasingAmountsCalculationService.calculate(mortgageData, overpayment);
-            default:
-                log.error("InputData.rateType(): [{}]", mortgageData.rateType());
-                throw new MortgageException();
-
-        }
+        return switch (mortgageData.rateType()) {
+            case CONSTANT -> constantAmountsCalculationService.calculate(mortgageData, overpayment);
+            case DECREASING -> decreasingAmountsCalculationService.calculate(mortgageData, overpayment);
+        };
     }
 
 
     @Override
     public RateAmounts calculate(MortgageData mortgageData, Overpayment overpayment, Rate previousRate) {
-        switch (mortgageData.rateType()) {
-            case CONSTANT:
-                return constantAmountsCalculationService.calculate(mortgageData, overpayment, previousRate);
-            case DECREASING:
-                return decreasingAmountsCalculationService.calculate(mortgageData, overpayment, previousRate);
-            default:
-                log.error("InputData.rateType(): [{}]", mortgageData.rateType());
-                throw new MortgageException();
-        }
+        return switch (mortgageData.rateType()) {
+            case CONSTANT -> constantAmountsCalculationService.calculate(mortgageData, overpayment, previousRate);
+            case DECREASING -> decreasingAmountsCalculationService.calculate(mortgageData, overpayment, previousRate);
+        };
     }
 }
 
