@@ -1,4 +1,4 @@
-package pl.zajavka.bankCalculator.savingsCalculator.service;
+package pl.zajavka.bankCalculator.calculators.savingsCalculator.service;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
