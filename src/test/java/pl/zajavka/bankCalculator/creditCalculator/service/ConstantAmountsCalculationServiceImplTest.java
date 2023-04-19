@@ -68,7 +68,7 @@ class ConstantAmountsCalculationServiceImplTest {
         BigDecimal capitalAmount
     ) {
         //given
-        MortgageData mortgageData = TestMortgageData.someInputData().withOverpaymentReduceWay(overpaymentReduceWay);
+        MortgageData mortgageData = TestMortgageData.someMortgageData().withOverpaymentReduceWay(overpaymentReduceWay);
 
         Overpayment overpayment = TestMortgageData.someOverpayment().withAmount(overpaymentAmount);
         RateAmounts expected = TestMortgageData.someRateAmounts()
@@ -89,7 +89,7 @@ class ConstantAmountsCalculationServiceImplTest {
     @DisplayName("Calculate constant rate amounts for other rates")
     void shouldCalculateRateAmountsForOtherRatesCorrectly() {
         //given
-        MortgageData mortgageData = TestMortgageData.someInputData();
+        MortgageData mortgageData = TestMortgageData.someMortgageData();
         Rate rate = TestMortgageData.someRate();
         RateAmounts expected = TestMortgageData.someRateAmounts()
             .withRateAmount(BigDecimal.valueOf(1520.84))

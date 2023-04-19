@@ -60,7 +60,7 @@ class TimePointCalculationServiceImplTest {
     @DisplayName("Calculate first rate's time point")
     void shouldCalculateTimePointForFirstRateCorrectly() {
         //given
-        MortgageData mortgageData1 = TestMortgageData.someInputData();
+        MortgageData mortgageData1 = TestMortgageData.someMortgageData();
 
         MortgageTimePoint expected = TestMortgageData.someTimePoint();
         String expectedExceptionMessage = "This method only accepts rateNumber equal to ONE";

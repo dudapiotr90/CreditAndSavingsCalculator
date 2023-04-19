@@ -26,8 +26,8 @@ class ResidualCalculationServiceImplTest {
     @Test
     void shouldCalculateResidualForFirstRateCorrectly() {
         //given
-        MortgageData mortgageData1 = TestMortgageData.someInputData();
-        MortgageData mortgageData2 = TestMortgageData.someInputData()
+        MortgageData mortgageData1 = TestMortgageData.someMortgageData();
+        MortgageData mortgageData2 = TestMortgageData.someMortgageData()
             .withAmount(BigDecimal.ZERO);
         RateAmounts rateAmounts = TestMortgageData.someRateAmounts()
             .withOverpayment(TestMortgageData.someOverpayment());
@@ -64,7 +64,7 @@ class ResidualCalculationServiceImplTest {
         String overpaymentReduceWay
     ) {
         //given
-        MortgageData mortgageData = TestMortgageData.someInputData()
+        MortgageData mortgageData = TestMortgageData.someMortgageData()
             .withAmount(mortgageAmount)
             .withOverpaymentReduceWay(overpaymentReduceWay)
             .withRateType(rateType);
