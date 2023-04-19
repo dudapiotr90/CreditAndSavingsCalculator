@@ -5,6 +5,8 @@ import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Collections;
+import java.util.List;
+import java.util.stream.IntStream;
 
 public class TestMortgageData {
     public static MortgageData someMortgageData() {
@@ -36,6 +38,7 @@ public class TestMortgageData {
             .mortgageTimePoint(someTimePoint())
             .mortgageResidual(someMortgageResidual())
             .mortgageReference(someMortgageReference())
+            .rateAmounts(someRateAmounts())
             .build();
     }
 
@@ -68,4 +71,18 @@ public class TestMortgageData {
             .build();
     }
 
+    public static List<Rate> someRates() {
+        return IntStream.rangeClosed(1, 180).boxed()
+            .map(i -> someRate().withRateNumber(BigDecimal.valueOf(i)))
+            .toList();
+    }
+
+    public static MortgageSummary someMortgageSummary() {
+        return MortgageSummary.builder()
+            .interestSum(new BigDecimal("97514"))
+            .overpaymentProvisions(BigDecimal.ZERO)
+            .totalLosses(new BigDecimal("97514"))
+            .totalCapital(new BigDecimal("143571"))
+            .build();
+    }
 }

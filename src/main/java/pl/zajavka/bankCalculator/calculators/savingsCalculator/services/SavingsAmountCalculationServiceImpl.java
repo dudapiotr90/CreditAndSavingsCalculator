@@ -24,6 +24,9 @@ public class SavingsAmountCalculationServiceImpl implements SavingsAmountCalcula
     public Savings calculateSaving(
         SavingsData savingsData, BigDecimal savingsNumber, MortgageData mortgageData
     ) {
+        if (!BigDecimal.ONE.equals(savingsNumber)) {
+            throw new RuntimeException("This method only accepts savingsNumber equal to ONE");
+        }
         SavingsTimePoint timePointSavings = savingsTimeCalculationService
             .calculate(savingsData, savingsNumber, mortgageData);
         SavingsAmount savingsAmount = calculateAmount(savingsData, timePointSavings);
