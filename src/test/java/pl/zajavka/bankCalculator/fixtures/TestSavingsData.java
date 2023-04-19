@@ -1,10 +1,11 @@
-package pl.zajavka.bankCalculator.savingsCalculator.service;
+package pl.zajavka.bankCalculator.fixtures;
 
 import pl.zajavka.bankCalculator.calculators.savingsCalculator.modelOfSavings.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.*;
+import java.util.List;
+import java.util.Map;
 
 public class TestSavingsData {
 

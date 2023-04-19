@@ -1,14 +1,16 @@
 package pl.zajavka.bankCalculator.creditCalculator.service;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.mockito.InjectMocks;
+import org.mockito.junit.jupiter.MockitoExtension;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.MortgageData;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.Overpayment;
-import pl.zajavka.bankCalculator.calculators.creditCalculator.services.OverpaymentCalculationService;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.services.OverpaymentCalculationServiceImpl;
+import pl.zajavka.bankCalculator.fixtures.TestMortgageData;
 
 import java.math.BigDecimal;
 import java.util.Collections;
@@ -16,10 +18,11 @@ import java.util.Map;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.params.provider.Arguments.arguments;
-
+@ExtendWith(MockitoExtension.class)
 class OverpaymentCalculationServiceImplTest {
 
-    OverpaymentCalculationService overpaymentCalculationService;
+    @InjectMocks
+    OverpaymentCalculationServiceImpl overpaymentCalculationService;
 
     public static Stream<Arguments> testData() {
         return Stream.of(
@@ -53,10 +56,6 @@ class OverpaymentCalculationServiceImplTest {
         );
     }
 
-    @BeforeEach
-    public void setup() {
-        this.overpaymentCalculationService = new OverpaymentCalculationServiceImpl();
-    }
 
     @ParameterizedTest
     @MethodSource(value = "testData")

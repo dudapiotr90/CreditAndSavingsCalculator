@@ -1,24 +1,21 @@
 package pl.zajavka.bankCalculator.savingsCalculator.service;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.junit.jupiter.MockitoExtension;
 import pl.zajavka.bankCalculator.calculators.savingsCalculator.modelOfSavings.Savings;
 import pl.zajavka.bankCalculator.calculators.savingsCalculator.modelOfSavings.SavingsData;
 import pl.zajavka.bankCalculator.calculators.savingsCalculator.modelOfSavings.SavingsTimePoint;
-import pl.zajavka.bankCalculator.calculators.savingsCalculator.services.AmountCalculationService;
 import pl.zajavka.bankCalculator.calculators.savingsCalculator.services.AmountCalculationServiceImpl;
+import pl.zajavka.bankCalculator.fixtures.TestSavingsData;
 
 import java.math.BigDecimal;
-
+@ExtendWith(MockitoExtension.class)
 class AmountCalculationServiceImplTest {
-
-    AmountCalculationService amountCalculationService;
-
-    @BeforeEach
-    void setUp() {
-        this.amountCalculationService = new AmountCalculationServiceImpl();
-    }
+@InjectMocks
+    AmountCalculationServiceImpl amountCalculationService;
 
     @Test
     void shouldCalculateSavingAmountCorrectlyForFirstDeposit() {

@@ -1,4 +1,4 @@
-package pl.zajavka.bankCalculator.creditCalculator.service;
+package pl.zajavka.bankCalculator.fixtures;
 
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.*;
 
@@ -39,14 +39,14 @@ public class TestMortgageData {
             .build();
     }
 
-    static MortgageResidual someMortgageResidual() {
+    public static MortgageResidual someMortgageResidual() {
         return MortgageResidual.builder()
             .amount(BigDecimal.valueOf(101238.21))
             .duration(BigDecimal.valueOf(60))
             .build();
     }
 
-    static MortgageReference someMortgageReference() {
+    public static MortgageReference someMortgageReference() {
         return MortgageReference.builder()
             .amount(BigDecimal.valueOf(150213.67))
             .duration(BigDecimal.valueOf(120))

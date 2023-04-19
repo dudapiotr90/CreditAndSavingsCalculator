@@ -1,27 +1,30 @@
 package pl.zajavka.bankCalculator.creditCalculator.service;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.mockito.InjectMocks;
+import org.mockito.junit.jupiter.MockitoExtension;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.MortgageData;
-import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.Rate;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.MortgageTimePoint;
-import pl.zajavka.bankCalculator.calculators.creditCalculator.services.TimePointCalculationService;
+import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.Rate;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.services.TimePointCalculationServiceImpl;
+import pl.zajavka.bankCalculator.fixtures.TestMortgageData;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.params.provider.Arguments.arguments;
-
+@ExtendWith(MockitoExtension.class)
 class TimePointCalculationServiceImplTest {
 
-    private TimePointCalculationService timePointCalculationService;
+    @InjectMocks
+    private TimePointCalculationServiceImpl timePointCalculationService;
 
     public static Stream<Arguments> testTimePointData() {
         return Stream.of(
@@ -52,10 +55,6 @@ class TimePointCalculationServiceImplTest {
         );
     }
 
-    @BeforeEach
-    public void setup() {
-        this.timePointCalculationService = new TimePointCalculationServiceImpl();
-    }
 
     @Test
     @DisplayName("Calculate first rate's time point")

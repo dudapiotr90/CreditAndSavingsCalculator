@@ -1,28 +1,26 @@
 package pl.zajavka.bankCalculator.savingsCalculator.service;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.junit.jupiter.MockitoExtension;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.MortgageData;
-import pl.zajavka.bankCalculator.calculators.savingsCalculator.services.SavingsTimeCalculationService;
-import pl.zajavka.bankCalculator.calculators.savingsCalculator.services.SavingsTimeCalculationServiceImpl;
-import pl.zajavka.bankCalculator.creditCalculator.service.TestMortgageData;
 import pl.zajavka.bankCalculator.calculators.savingsCalculator.modelOfSavings.Savings;
 import pl.zajavka.bankCalculator.calculators.savingsCalculator.modelOfSavings.SavingsData;
 import pl.zajavka.bankCalculator.calculators.savingsCalculator.modelOfSavings.SavingsTimePoint;
+import pl.zajavka.bankCalculator.calculators.savingsCalculator.services.SavingsTimeCalculationServiceImpl;
+import pl.zajavka.bankCalculator.fixtures.TestMortgageData;
+import pl.zajavka.bankCalculator.fixtures.TestSavingsData;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
-
+@ExtendWith(MockitoExtension.class)
 class SavingsTimeCalculationServiceImplTest {
 
-    SavingsTimeCalculationService savingsTimeCalculationService;
-
-    @BeforeEach
-    void setUp() {
-        this.savingsTimeCalculationService = new SavingsTimeCalculationServiceImpl();
-    }
+    @InjectMocks
+    SavingsTimeCalculationServiceImpl savingsTimeCalculationService;
 
     @Test
     void shouldCalculateSavingsTimePointForFirstDepositCorrectly() {
