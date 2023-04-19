@@ -1,24 +1,28 @@
 package pl.zajavka.bankCalculator.creditCalculator.service;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.mockito.InjectMocks;
+import org.mockito.junit.jupiter.MockitoExtension;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.*;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.services.MortgageException;
-import pl.zajavka.bankCalculator.calculators.creditCalculator.services.ReferenceCalculationService;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.services.ReferenceCalculationServiceImpl;
+import pl.zajavka.bankCalculator.fixtures.TestMortgageData;
 
 import java.math.BigDecimal;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
+@ExtendWith(MockitoExtension.class)
 class ReferenceCalculationServiceImplTest {
 
-    ReferenceCalculationService referenceCalculationService;
+    @InjectMocks
+    ReferenceCalculationServiceImpl referenceCalculationService;
 
     public static Stream<Arguments> testReferenceDataForFirstRate() {
         return Stream.of(
@@ -78,11 +82,6 @@ class ReferenceCalculationServiceImplTest {
                 BigDecimal.valueOf(14774.41)
             )
         );
-    }
-
-    @BeforeEach
-    void setUp() {
-        this.referenceCalculationService = new ReferenceCalculationServiceImpl();
     }
 
     @ParameterizedTest

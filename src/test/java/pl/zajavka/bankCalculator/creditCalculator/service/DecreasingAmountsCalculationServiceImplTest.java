@@ -1,26 +1,25 @@
 package pl.zajavka.bankCalculator.creditCalculator.service;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.junit.jupiter.MockitoExtension;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.MortgageData;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.MortgageResidual;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.Rate;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.RateAmounts;
-import pl.zajavka.bankCalculator.calculators.creditCalculator.services.DecreasingAmountsCalculationService;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.services.DecreasingAmountsCalculationServiceImpl;
+import pl.zajavka.bankCalculator.fixtures.TestMortgageData;
 
 import java.math.BigDecimal;
-
+@ExtendWith(MockitoExtension.class)
 class DecreasingAmountsCalculationServiceImplTest {
 
-    DecreasingAmountsCalculationService decreasingAmountsCalculationService;
+    @InjectMocks
+    DecreasingAmountsCalculationServiceImpl decreasingAmountsCalculationService;
 
-    @BeforeEach
-    public void setup() {
-        this.decreasingAmountsCalculationService = new DecreasingAmountsCalculationServiceImpl();
-    }
 
     @Test
     @DisplayName("Calculate decreasing rate amounts for first rate")
