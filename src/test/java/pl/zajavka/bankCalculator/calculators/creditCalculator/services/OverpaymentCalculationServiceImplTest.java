@@ -9,7 +9,6 @@ import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.MortgageData;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.Overpayment;
-import pl.zajavka.bankCalculator.calculators.creditCalculator.services.OverpaymentCalculationServiceImpl;
 import pl.zajavka.bankCalculator.fixtures.TestMortgageData;
 
 import java.math.BigDecimal;

@@ -13,7 +13,6 @@ import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.Mort
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.Overpayment;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.Rate;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.RateAmounts;
-import pl.zajavka.bankCalculator.calculators.creditCalculator.services.ConstantAmountsCalculationServiceImpl;
 import pl.zajavka.bankCalculator.fixtures.TestMortgageData;
 
 import java.math.BigDecimal;

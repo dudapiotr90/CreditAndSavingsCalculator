@@ -12,7 +12,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.MortgageData;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.MortgageTimePoint;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.Rate;
-import pl.zajavka.bankCalculator.calculators.creditCalculator.services.TimePointCalculationServiceImpl;
 import pl.zajavka.bankCalculator.fixtures.TestMortgageData;
 
 import java.math.BigDecimal;
