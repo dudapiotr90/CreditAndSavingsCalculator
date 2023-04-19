@@ -9,8 +9,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.*;
-import pl.zajavka.bankCalculator.calculators.creditCalculator.services.MortgageException;
-import pl.zajavka.bankCalculator.calculators.creditCalculator.services.ReferenceCalculationServiceImpl;
 import pl.zajavka.bankCalculator.fixtures.TestMortgageData;
 
 import java.math.BigDecimal;
