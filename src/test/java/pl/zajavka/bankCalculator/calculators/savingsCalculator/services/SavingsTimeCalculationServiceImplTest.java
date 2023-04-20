@@ -1,4 +1,4 @@
-package pl.zajavka.bankCalculator.calculators.savingsCalculator.service;
+package pl.zajavka.bankCalculator.calculators.savingsCalculator.services;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -9,7 +9,6 @@ import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.Mort
 import pl.zajavka.bankCalculator.calculators.savingsCalculator.modelOfSavings.Savings;
 import pl.zajavka.bankCalculator.calculators.savingsCalculator.modelOfSavings.SavingsData;
 import pl.zajavka.bankCalculator.calculators.savingsCalculator.modelOfSavings.SavingsTimePoint;
-import pl.zajavka.bankCalculator.calculators.savingsCalculator.services.SavingsTimeCalculationServiceImpl;
 import pl.zajavka.bankCalculator.fixtures.TestMortgageData;
 import pl.zajavka.bankCalculator.fixtures.TestSavingsData;
 
