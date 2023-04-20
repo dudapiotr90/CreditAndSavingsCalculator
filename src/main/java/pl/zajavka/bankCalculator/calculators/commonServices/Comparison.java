@@ -1,10 +1,12 @@
 package pl.zajavka.bankCalculator.calculators.commonServices;
 
+import lombok.Builder;
 import lombok.With;
 import pl.zajavka.bankCalculator.calculators.creditCalculator.modelOfCredit.MortgageSummary;
 import pl.zajavka.bankCalculator.calculators.savingsCalculator.modelOfSavings.SavingsSummary;
 
 @With
+@Builder
 public class Comparison {
 
     private static Comparison instance;

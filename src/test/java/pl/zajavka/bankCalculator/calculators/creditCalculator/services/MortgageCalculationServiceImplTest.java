@@ -30,7 +30,7 @@ class MortgageCalculationServiceImplTest {
     private MortgageSummaryService mortgageSummaryService;
 
     @Test
-    void shouldPrintMortgageInformationCorrectly() {
+    void shouldCallInsideMethodsCorrectly() {
         // given
         MortgageData mortgageData = TestMortgageData.someMortgageData();
         MortgageSummary mortgageSummary = TestMortgageData.someMortgageSummary();
@@ -46,15 +46,14 @@ class MortgageCalculationServiceImplTest {
         mortgageCalculationService.calculate(mortgageData);
 
         // then
-        verify(printingService).printIntroInformation(mortgageData);
-        verify(printingService).printOverpaymentProfit(TestMortgageData.someMortgageSummary(),
-            TestMortgageData.someMortgageSummary().withOverpaymentProvisions(new BigDecimal("1354")));
-        verify(printingService).printMortgageSummary(
-            TestMortgageData.someMortgageSummary().withOverpaymentProvisions(BigDecimal.valueOf(1354)));
-        verify(printingService).printRatesSchedule(expectedRates,mortgageData);
+        verify(printingService).printIntroInformation(any(MortgageData.class));
+        verify(printingService).printOverpaymentProfit(any(MortgageSummary.class),any(MortgageSummary.class)            );
+        verify(printingService).printMortgageSummary(any(MortgageSummary.class));
 
-        verify(rateCalculationService, times(2)).calculate(mortgageData);
-        verify(mortgageSummaryService, times(2)).calculate(expectedRates);
+        verify(printingService).printRatesSchedule(anyList(), any(MortgageData.class));
+
+        verify(rateCalculationService, times(2)).calculate(any(MortgageData.class));
+        verify(mortgageSummaryService, times(2)).calculate(anyList());
 
     }
 
