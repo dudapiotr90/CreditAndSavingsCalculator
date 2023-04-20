@@ -89,7 +89,6 @@ class SavingsAmountCalculationServiceImplTest {
     }
 
 
-
     @Test
     @DisplayName("Calculate Initial Saving with Quarterly Capitalization")
     void shouldCalculateInitialSavingAfterQuarterCorrectly() {
@@ -117,4 +116,106 @@ class SavingsAmountCalculationServiceImplTest {
         Assertions.assertEquals(expected, result);
     }
 
+    @Test
+    @DisplayName("Calculate Other Saving with Monthly Capitalization")
+    void shouldCalculateOtherSavingAfterMonthCorrectly() {
+        // given
+        MortgageData mortgageData = TestMortgageData.someMortgageData();
+        SavingsData savingsData = TestSavingsData.someSavingsData()
+            .withInterestCapitalization(InterestCapitalization.AFTER_MONTH);
+        SavingsTimePoint timePoint = TestSavingsData.someSavingsTimePoint();
+
+        Savings expected = TestSavingsData.someSavings();
+
+
+        when(savingsTimeCalculationService.calculate(any(SavingsData.class), any(BigDecimal.class),
+            any(Savings.class))).thenReturn(timePoint);
+
+        when(interestCalculationService.calculateInterestByMonth(any(SavingsData.class),
+            any(Savings.class), any(SavingsTimePoint.class)))
+            .thenReturn(BigDecimal.valueOf(975.77));
+
+        when(amountCalculationService.calculateSavingAmount(any(SavingsData.class), any(BigDecimal.class),
+            any(Savings.class), any(SavingsTimePoint.class))).thenReturn(BigDecimal.valueOf(14957.12));
+
+        // when
+        Savings result = savingsAmountCalculationService.calculateSaving(expected,BigDecimal.valueOf(13),mortgageData,
+            savingsData);
+
+        // then
+        Assertions.assertEquals(expected, result);
+    }
+
+    @Test
+    @DisplayName("Calculate Other Saving with Yearly Capitalization")
+    void shouldCalculateOtherSavingAfterYearCorrectly() {
+        // given
+        MortgageData mortgageData = TestMortgageData.someMortgageData();
+        SavingsData savingsData = TestSavingsData.someSavingsData()
+            .withInterestCapitalization(InterestCapitalization.AFTER_YEAR);
+        SavingsTimePoint timePoint = TestSavingsData.someSavingsTimePoint();
+
+        Savings expected = TestSavingsData.someSavings();
+
+        when(savingsTimeCalculationService.calculate(any(SavingsData.class), any(BigDecimal.class),
+            any(Savings.class))).thenReturn(timePoint);
+
+        when(interestCalculationService.calculateInterestByYear(any(SavingsData.class),
+            any(Savings.class), any(SavingsTimePoint.class)))
+            .thenReturn(BigDecimal.valueOf(975.77));
+
+        when(amountCalculationService.calculateSavingAmount(any(SavingsData.class), any(BigDecimal.class),
+            any(Savings.class), any(SavingsTimePoint.class))).thenReturn(BigDecimal.valueOf(14957.12));
+
+        // when
+        Savings result = savingsAmountCalculationService.calculateSaving(expected,BigDecimal.valueOf(13),mortgageData,
+            savingsData);
+        // then
+        Assertions.assertEquals(expected, result);
+    }
+
+
+    @Test
+    @DisplayName("Calculate Other Saving with Quarterly Capitalization")
+    void shouldCalculateOtherSavingAfterQuarterCorrectly() {
+        // given
+        MortgageData mortgageData = TestMortgageData.someMortgageData();
+        SavingsData savingsData = TestSavingsData.someSavingsData()
+            .withInterestCapitalization(InterestCapitalization.AFTER_QUARTER);
+        SavingsTimePoint timePoint = TestSavingsData.someSavingsTimePoint();
+
+        Savings expected = TestSavingsData.someSavings();
+
+        when(savingsTimeCalculationService.calculate(any(SavingsData.class), any(BigDecimal.class),
+            any(Savings.class))).thenReturn(timePoint);
+
+        when(interestCalculationService.calculateInterestByQuarter(any(SavingsData.class),
+            any(Savings.class), any(SavingsTimePoint.class)))
+            .thenReturn(BigDecimal.valueOf(975.77));
+
+        when(amountCalculationService.calculateSavingAmount(any(SavingsData.class), any(BigDecimal.class),
+            any(Savings.class), any(SavingsTimePoint.class))).thenReturn(BigDecimal.valueOf(14957.12));
+
+        // when
+        Savings result = savingsAmountCalculationService.calculateSaving(expected,BigDecimal.valueOf(13),mortgageData,
+            savingsData);
+        // then
+        Assertions.assertEquals(expected, result);
+    }
+
+    @Test()
+    void shouldThrowExceptionWhenCalculatingInitialSaving() {
+        // given
+        SavingsData savingsData =TestSavingsData.someSavingsData();
+        MortgageData mortgageData = TestMortgageData.someMortgageData();
+
+        String expectedExceptionMessage = "This method only accepts savingsNumber equal to ONE";
+
+        // when
+        Throwable exception = Assertions.assertThrows(RuntimeException.class, () ->
+            savingsAmountCalculationService.calculateSaving(savingsData, BigDecimal.TEN, mortgageData));
+
+        // then
+        Assertions.assertEquals(expectedExceptionMessage,exception.getMessage());
+    }
 }

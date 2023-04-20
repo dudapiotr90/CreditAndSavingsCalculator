@@ -1,4 +1,4 @@
-package pl.zajavka.bankCalculator.calculators.savingsCalculator.service;
+package pl.zajavka.bankCalculator.calculators.savingsCalculator.services;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -8,7 +8,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import pl.zajavka.bankCalculator.calculators.savingsCalculator.modelOfSavings.Savings;
 import pl.zajavka.bankCalculator.calculators.savingsCalculator.modelOfSavings.SavingsData;
 import pl.zajavka.bankCalculator.calculators.savingsCalculator.modelOfSavings.SavingsTimePoint;
-import pl.zajavka.bankCalculator.calculators.savingsCalculator.services.InterestCalculationServiceImpl;
 import pl.zajavka.bankCalculator.fixtures.TestSavingsData;
 
 import java.math.BigDecimal;
