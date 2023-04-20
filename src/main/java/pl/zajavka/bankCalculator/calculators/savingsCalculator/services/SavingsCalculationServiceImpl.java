@@ -42,12 +42,10 @@ public class SavingsCalculationServiceImpl implements SavingsCalculationService 
         printingService.printSavingsInformation(savingsData, mortgageData);
         printingService.printSavingsSummary(summarySavings);
         printingService.printSavings(savings);
-
-
         printingService.printComparison(comparison, mortgageData);
     }
 
-    public List<Savings> calculateSavings(SavingsData savingsData, MortgageData mortgageData) {
+    private List<Savings> calculateSavings(SavingsData savingsData, MortgageData mortgageData) {
         List<Savings> savings = new ArrayList<>();
 
         BigDecimal savingsNumber = BigDecimal.ONE;
